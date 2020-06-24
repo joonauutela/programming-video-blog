@@ -20,15 +20,15 @@ const schema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    comments: [
+    /*comments: [
         {
             body: String,
             username: String,
-            createdAt: Date
+            //createdAt: Date
         }
-    ],
+    ],*/
     likes: Number,
-    createdAt: Date
+    // createdAt: Date
 })
 
 module.exports = mongoose.model('Post', schema)

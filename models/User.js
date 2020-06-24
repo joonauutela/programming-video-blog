@@ -7,14 +7,12 @@ const userSchema = mongoose.Schema({
         minlength: 3
     },
     passwordHash: String,
-    /*
     posts: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Post'
         }
     ]
-    */
 })
 
 
