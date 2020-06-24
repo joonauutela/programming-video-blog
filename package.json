@@ -1,0 +1,25 @@
+{
+  "name": "progem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "articles",
+    "videos",
+    "programming"
+  ],
+  "author": "Joona Uutela",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.15.0",
+    "graphql": "^15.1.0",
+    "mongoose": "^5.9.20"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
