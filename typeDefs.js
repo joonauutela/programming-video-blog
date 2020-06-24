@@ -14,8 +14,9 @@ module.exports = gql`
     }
     type Query {
         ping: String!
+        getUsers: [User!]!
     }
     type Mutation {
-        register(registerInput: RegisterInput): User!
+        register(registerInput: RegisterInput): User
     }
 `
