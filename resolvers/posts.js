@@ -1,17 +1,29 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Post = require('../models/Post')
+const { AuthenticationError, UserInputError } = require('apollo-server')
 
 require('dotenv').config()
 
 module.exports = {
+    Query: {
+        getPosts: async (_, args, context) => {
+            if (args.category) {
+                return Post.find({ category: args.category })
+            }
+            return Post.find({})
+        }
+    },
     Mutation: {
         addPost: async (_, args, { currentUser }) => {
             if (!currentUser) {
                 throw new AuthenticationError("not authenticated")
             }
-
-            const post = new Post({ ...args, user: currentUser })
+            const post = new Post({
+                ...args,
+                user: currentUser,
+                likes: 0
+            })
             try {
                 const savedPost = await post.save()
                 currentUser.posts = currentUser.posts.concat(savedPost._id)

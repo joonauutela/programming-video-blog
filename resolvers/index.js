@@ -5,6 +5,7 @@ module.exports = {
     Query: {
         ping: () => 'Pinged2',
         ...userResolvers.Query,
+        ...postResolvers.Query
     },
     Mutation: {
         ...userResolvers.Mutation,

@@ -16,8 +16,6 @@ module.exports = {
     Mutation: {
         register: async (_, { registerInput: { username, password, confirmPassword } }, context, info) => {
             const { valid, errors } = validateRegisterInput(username, password, confirmPassword)
-            console.log("moi")
-            console.log(valid)
             if (!valid) {
                 throw new UserInputError('Errors', { errors })
             }
@@ -37,8 +35,11 @@ module.exports = {
         },
         login: async (_, args, context, info) => {
             const user = await User.findOne({ username: args.username })
+            if (user === null) {
+                throw new UserInputError("wrong credentials")
+            }
             const match = await bcrypt.compare(args.password, user.passwordHash)
-            if (!user || !match) {
+            if (!match) {
                 throw new UserInputError("wrong credentials")
             }
             const userForToken = {

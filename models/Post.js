@@ -20,14 +20,15 @@ const schema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    /*comments: [
-        {
-            body: String,
-            username: String,
-            //createdAt: Date
-        }
-    ],*/
-    likes: Number,
+    likes: {
+        type: Number,
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    }
+    //TODO: Create comments attribute
     // createdAt: Date
 })
 

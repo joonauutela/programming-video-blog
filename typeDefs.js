@@ -14,7 +14,9 @@ module.exports = gql`
         title: String!
         link: String!
         content: String!
-        user: User! 
+        user: User!
+        likes: Int!
+        category: String!
     }
     input RegisterInput {
         username: String!
@@ -24,12 +26,14 @@ module.exports = gql`
     type Query {
         ping: String!
         getUsers: [User!]!
+        getPosts(category: String): [Post!]!
     }
     type Mutation {
         addPost(
             title: String!
             link: String!
             content: String!
+            category: String!
         ): Post
 
         register(registerInput: RegisterInput): User
