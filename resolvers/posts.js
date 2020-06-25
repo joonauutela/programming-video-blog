@@ -7,11 +7,21 @@ require('dotenv').config()
 module.exports = {
     Mutation: {
         addPost: async (_, args, { currentUser }) => {
-            console.log("addpostissa")
+            if (!currentUser) {
+                throw new AuthenticationError("not authenticated")
+            }
+
             const post = new Post({ ...args, user: currentUser })
-            console.log(post)
-            await post.save()
-            return post;
+            try {
+                const savedPost = await post.save()
+                currentUser.posts = currentUser.posts.concat(savedPost._id)
+                await currentUser.save()
+            } catch (error) {
+                throw new UserInputError(error.message, {
+                    invalidArgs: args,
+                })
+            }
+            return post
         }
     }
 }

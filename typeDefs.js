@@ -5,6 +5,7 @@ module.exports = gql`
         id: ID!
         username: String!
         passwordHash: String!
+        posts: [Post!]!
     }
     type Token {
         value: String!

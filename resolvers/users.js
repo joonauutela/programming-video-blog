@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
-
+const { validateRegisterInput } = require('../util/validator')
+const { UserInputError } = require('apollo-server')
 require('dotenv').config()
 
 const SECRET_KEY = process.env.SECRET_KEY
@@ -9,17 +10,29 @@ const SECRET_KEY = process.env.SECRET_KEY
 module.exports = {
     Query: {
         getUsers: () => {
-            return User.find({})
+            return User.find({}).populate('posts')
         }
     },
     Mutation: {
         register: async (_, { registerInput: { username, password, confirmPassword } }, context, info) => {
+            const { valid, errors } = validateRegisterInput(username, password, confirmPassword)
+            console.log("moi")
+            console.log(valid)
+            if (!valid) {
+                throw new UserInputError('Errors', { errors })
+            }
             passwordHash = await bcrypt.hash(password, 12)
             const newUser = new User({
                 username,
                 passwordHash
             })
-            await newUser.save()
+            try {
+                await newUser.save()
+            } catch (error) {
+                throw new UserInputError(error.message, {
+                    invalidArgs: args,
+                })
+            }
             return newUser
         },
         login: async (_, args, context, info) => {
@@ -32,7 +45,7 @@ module.exports = {
                 username: user.username,
                 id: user._id,
             }
-            return { value: jwt.sign(userForToken, SECRET_KEY) }
+            return { value: jwt.sign(userForToken, SECRET_KEY, { expiresIn: '1h' }) }
         }
     }
 }
