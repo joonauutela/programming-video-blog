@@ -1,24 +1,22 @@
 import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
-import YouTubePlayer from '../components/YoutubePlayer'
+import { Link } from 'react-router-dom'
 
-const Post = () => {
+const Post = ({ title, content, link, likes }) => {
     return (
         <Card fluid color='red'>
             <Card.Content>
-                <Card.Header>Cool Reactjs video</Card.Header>
+                <Card.Header>{title}</Card.Header>
                 <Card.Meta>Posted 1.7.2020</Card.Meta>
                 <Card.Description>
-                    <YouTubePlayer />
-                        Daniel is a comedian living in Nashville.
-                        Lorem ipsum
-                        lolol
-                    </Card.Description>
+                    <p>{content}</p>
+                    <Link to='/categories'>Full post</Link>
+                </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <a style={{ "fontSize": "1.2rem" }}>
-                    10 likes
-                    </a>
+                <span style={{ "fontSize": "1.2rem" }} >
+                    {likes} likes
+                    </span>
                 <Icon name='like' color='green' style={{ "paddingLeft": "1%" }} size="large" />
             </Card.Content>
         </Card>

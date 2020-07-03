@@ -1,13 +1,19 @@
 import React from 'react'
 import YouTube from 'react-youtube'
 
-const YoutubePlayer = () => {
+const YoutubePlayer = ({ link }) => {
+
     const opts = {
         height: '195',
         width: '320',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
             autoplay: 0,
+            autohide: 1,
+            enablejsapi: 1,
+            wmode: 'opaque',
+            origin: 'http://localhost:3000',
+            widget_referrer: window.location.href
         },
     }
     const _onReady = (event) => {
@@ -16,7 +22,7 @@ const YoutubePlayer = () => {
     }
 
     return (
-        <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={_onReady} />
+        <YouTube videoId={link} opts={opts} onReady={_onReady} />
     )
 }
 

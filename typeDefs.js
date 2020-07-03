@@ -17,6 +17,7 @@ module.exports = gql`
         user: User!
         likes: Int!
         category: String!
+        id: ID!
     }
     input RegisterInput {
         username: String!
