@@ -36,9 +36,8 @@ module.exports = gql`
             content: String!
             category: String!
         ): Post
-
+        likePost(id: ID!): Post
         register(registerInput: RegisterInput): User
-
         login(
             username: String!
             password: String!

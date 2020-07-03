@@ -34,6 +34,15 @@ module.exports = {
                 })
             }
             return post
+        },
+        likePost: async (_, args, { currentUser }) => {
+            //if (!currentUser) {
+            //    throw new AuthenticationError("not authenticated")
+            //}
+            const post = await Post.findById(args.id)
+            post.likes++
+            return await post.save()
+
         }
     }
 }

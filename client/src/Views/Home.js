@@ -23,6 +23,7 @@ const Home = () => {
                                     link={post.link}
                                     likes={post.likes}
                                     content={post.content}
+                                    id={post.id}
                                 />
                             }
                             return null
@@ -37,6 +38,7 @@ const Home = () => {
                                     link={post.link}
                                     likes={post.likes}
                                     content={post.content}
+                                    id={post.id}
                                 />
                             }
                             return null
