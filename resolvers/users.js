@@ -14,16 +14,19 @@ module.exports = {
         }
     },
     Mutation: {
-        register: async (_, { registerInput: { username, password, confirmPassword } }, context, info) => {
-            const { valid, errors } = validateRegisterInput(username, password, confirmPassword)
+        register: async (_, { registerInput: { username, password, email, confirmPassword } }, context, info) => {
+
+            const { valid, errors } = validateRegisterInput(username, email, password, confirmPassword)
             if (!valid) {
                 throw new UserInputError('Errors', { errors })
             }
             passwordHash = await bcrypt.hash(password, 12)
             const newUser = new User({
                 username,
+                email,
                 passwordHash
             })
+            console.log(newUser)
             try {
                 await newUser.save()
             } catch (error) {

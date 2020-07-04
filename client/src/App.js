@@ -22,7 +22,7 @@ const App = () => {
         <Route path='/post/:id' component={PostDescription} />
       </Container>
     </Router>
-  );
+  )
 }
 
 export default App;

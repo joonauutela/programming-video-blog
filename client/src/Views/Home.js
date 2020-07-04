@@ -11,7 +11,7 @@ const Home = () => {
     }
     return (
         <div>
-            <h1>All posts</h1>
+            <h1 style={{ "textAlign": "center", "paddingBottom": "2%" }}>All posts</h1>
             <Grid divided='vertically'>
                 <Grid.Row columns={2}>
                     <Grid.Column>
