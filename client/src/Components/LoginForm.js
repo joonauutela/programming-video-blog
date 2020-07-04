@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/react-hooks'
 import { REGISTER_USER } from '../queries'
 import { withRouter } from 'react-router-dom'
 
-const RegisterForm = (props) => {
+const LoginForm = (props) => {
     const [errors, setErrors] = useState({})
     const [values, setValues] = useState({
         username: '',
@@ -45,7 +45,7 @@ const RegisterForm = (props) => {
                 </div>
             }
             <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
-                <h1>Register</h1>
+                <h1>Login</h1>
                 <Form.Input
                     label='Username'
                     placeholder='Username..'
@@ -53,15 +53,6 @@ const RegisterForm = (props) => {
                     type='username'
                     value={values.username}
                     error={errors.username ? true : false}
-                    onChange={onChange}
-                />
-                <Form.Input
-                    label='Email'
-                    placeholder='Email..'
-                    name='email'
-                    type='email'
-                    value={values.email}
-                    error={errors.email ? true : false}
                     onChange={onChange}
                 />
                 <Form.Input
@@ -73,15 +64,6 @@ const RegisterForm = (props) => {
                     error={errors.password ? true : false}
                     onChange={onChange}
                 />
-                <Form.Input
-                    label='Confirm Password'
-                    placeholder='Confirm Password..'
-                    name='confirmPassword'
-                    type='password'
-                    value={values.confirmPassword}
-                    error={errors.confirmPassword ? true : false}
-                    onChange={onChange}
-                />
                 <Button type='submit' primary>
                     Register
                 </Button>
@@ -90,4 +72,4 @@ const RegisterForm = (props) => {
     )
 }
 
-export default withRouter(RegisterForm)
+export default withRouter(LoginForm)

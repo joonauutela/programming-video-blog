@@ -21,7 +21,7 @@ const Post = ({ title, content, link, likes, id }) => {
             <Card.Content>
                 <Card.Header>{title}</Card.Header>
                 <Card.Meta>Posted 1.7.2020</Card.Meta>
-                <img src='https://img.youtube.com/vi/ysz5S6PUM-U/0.jpg' style={{ "width": "50%", "paddingTop": "2%", "paddingBottom": "2%" }} wrapped ui={false} />
+                <img src='https://img.youtube.com/vi/ysz5S6PUM-U/0.jpg' style={{ "width": "50%", "paddingTop": "2%", "paddingBottom": "2%" }} />
                 <Card.Description>
                     <p>{content}</p>
                     <Link to={`/post/${id}`}>Full post</Link>
