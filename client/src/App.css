@@ -13,6 +13,38 @@
   }
 }
 
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+  
+}
+
+.youtube-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.youtube-player > div {
+  position: absolute; 
+}
+
+.postContainer {
+  text-align: center;
+  background: rgb(255, 255, 255);
+  margin-bottom: 4rem;
+  padding: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.postInfo {
+  font-style: italic;
+}
+
+.postContent {
+  padding-top: 1%;
+  border-top: 1px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

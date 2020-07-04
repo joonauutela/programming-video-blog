@@ -12,6 +12,10 @@ module.exports = {
                 return Post.find({ category: args.category })
             }
             return Post.find({})
+        },
+        getPost: async (_, args) => {
+            const post = await Post.findById(args.id)
+            return post
         }
     },
     Mutation: {

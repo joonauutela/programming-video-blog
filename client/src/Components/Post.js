@@ -11,7 +11,7 @@ const Post = ({ title, content, link, likes, id }) => {
     const [like] = useMutation(LIKE_POST_QUERY, {
         refetchQueries: [{ query: FETCH_POSTS_QUERY }]
     })
-    const likePost = (post) => {
+    const likePost = () => {
         like({ variables: { id } }).
             then(setIsLiked(true))
     }
@@ -23,7 +23,7 @@ const Post = ({ title, content, link, likes, id }) => {
                 <Card.Meta>Posted 1.7.2020</Card.Meta>
                 <Card.Description>
                     <p>{content}</p>
-                    <Link to='/categories'>Full post</Link>
+                    <Link to={`/post/${id}`}>Full post</Link>
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
@@ -35,7 +35,6 @@ const Post = ({ title, content, link, likes, id }) => {
                 }
             </Card.Content>
         </Card>
-
     )
 }
 

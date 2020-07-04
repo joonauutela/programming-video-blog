@@ -6,6 +6,7 @@ import Home from './views/Home'
 import Login from './views/Login'
 import Register from './views/Register'
 import Navbar from './components/Navbar'
+import PostDescription from './views/PostDescription'
 
 import 'semantic-ui-css/semantic.min.css'
 import './App.css'
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
+        <Route path='/post/:id' component={PostDescription} />
       </Container>
     </Router>
   );

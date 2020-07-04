@@ -1,28 +1,26 @@
 import React from 'react'
-import YouTube from 'react-youtube'
+import ReactPlayer from 'react-player'
+import '../App.css'
 
-const YoutubePlayer = ({ link }) => {
+const YoutubePlayer = () => {
 
-    const opts = {
-        height: '195',
-        width: '320',
-        playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 0,
-            autohide: 1,
-            enablejsapi: 1,
-            wmode: 'opaque',
-            origin: 'http://localhost:3000',
-            widget_referrer: window.location.href
-        },
+    const config = {
+        youtube: {
+            playerVars: {
+                controls: 1
+            }
+        }
     }
-    const _onReady = (event) => {
-        // access to player in all event handlers via event.target
-        event.target.pauseVideo();
-    }
-
     return (
-        <YouTube videoId={link} opts={opts} onReady={_onReady} />
+        <div className="player-wrapper">
+            <ReactPlayer
+                className="youtube-player"
+                url='https://www.youtube.com/watch?v=ysz5S6PUM-U'
+                config={config}
+                width='100%'
+                height='100%'
+            />
+        </div>
     )
 }
 
