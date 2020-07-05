@@ -11,7 +11,7 @@ const Navbar = () => {
     const handleItemClick = (e, { name }) => setActiveItem(name)
 
     return (
-        <Menu pointing secondary size="large" color="teal" style={{ "background": "black" }}>
+        <Menu pointing secondary size="large" color="teal" style={{ "background": "black", "height": "40px" }}>
             <Menu.Item
                 style={{ "color": "white" }}
                 name='home'

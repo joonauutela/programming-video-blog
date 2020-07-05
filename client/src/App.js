@@ -5,7 +5,8 @@ import { Container } from 'semantic-ui-react'
 import Home from './views/Home'
 import Login from './views/Login'
 import Register from './views/Register'
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar/Navbar'
+import ParticleComponent from './components/ParticleComponent'
 import PostDescription from './views/PostDescription'
 
 import 'semantic-ui-css/semantic.min.css'
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <Router>
       <Navbar />
+      <ParticleComponent />
       <Container>
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
