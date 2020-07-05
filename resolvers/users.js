@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 const { validateRegisterInput } = require('../util/validators/register')
+const { validateLoginInput } = require('../util/validators/login')
 const { UserInputError } = require('apollo-server')
 require('dotenv').config()
 
@@ -28,14 +29,22 @@ module.exports = {
             })
             return await newUser.save()
         },
-        login: async (_, args, context, info) => {
-            const user = await User.findOne({ username: args.username })
-            if (user === null) {
-                throw new UserInputError("wrong credentials")
+        login: async (_, { username, password }) => {
+
+            const { errors, valid } = validateLoginInput(username, password)
+
+            if (!valid) {
+                throw new UserInputError('Errors', { errors })
             }
-            const match = await bcrypt.compare(args.password, user.passwordHash)
+            const user = await User.findOne({ username })
+            if (user === null) {
+                errors.general = 'Wrong credentials'
+                throw new UserInputError("Wrong credentials", { errors })
+            }
+            const match = await bcrypt.compare(password, user.passwordHash)
             if (!match) {
-                throw new UserInputError("wrong credentials")
+                errors.general = 'Wrong credentials'
+                throw new UserInputError("Wrong credentials", { errors })
             }
             const userForToken = {
                 username: user.username,

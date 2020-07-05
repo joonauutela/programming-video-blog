@@ -1,24 +1,22 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { useMutation } from '@apollo/react-hooks'
-import { REGISTER_USER } from '../queries'
+import { LOGIN_USER } from '../queries'
 import { withRouter } from 'react-router-dom'
+
+import { useForm } from '../util/hooks'
 
 const LoginForm = (props) => {
     const [errors, setErrors] = useState({})
-    const [values, setValues] = useState({
+
+    const { onChange, onSubmit, values } = useForm(loginUserCallback, {
         username: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
+        password: ''
     })
 
-    const onChange = (event) => {
-        setValues({ ...values, [event.target.name]: event.target.value })
-    }
-
-    const [addUser, { loading }] = useMutation(REGISTER_USER, {
+    const [loginUser, { loading }] = useMutation(LOGIN_USER, {
         update(_, result) {
+            console.log(result)
             props.history.push('/')
         },
         onError(err) {
@@ -28,9 +26,8 @@ const LoginForm = (props) => {
         variables: values
     })
 
-    const onSubmit = (event) => {
-        event.preventDefault()
-        addUser()
+    function loginUserCallback() {
+        loginUser()
     }
 
     return (
