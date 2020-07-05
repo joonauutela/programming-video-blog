@@ -1,13 +1,15 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { FETCH_POSTS_QUERY } from '../queries'
-import Post from '../components/Post'
 import { Grid } from 'semantic-ui-react'
+
+import Post from '../components/Post'
+import Loader from '../components/Loader'
 
 const Home = () => {
     const { loading, data } = useQuery(FETCH_POSTS_QUERY)
     if (loading) {
-        return <h1>loading</h1>
+        return <Loader />
     }
     return (
         <div>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import YoutubePlayer from '../components/YoutubePlayer'
+import Loader from '../components/Loader'
 import '../App.css'
 import { useQuery } from '@apollo/react-hooks'
 import { FETCH_POST_QUERY } from '../queries'
@@ -11,7 +12,7 @@ const PostDescription = () => {
         variables: { id }
     })
     if (loading) {
-        return <h1>loading</h1>
+        return <Loader />
     }
     return (
         <div className="postContainer">
