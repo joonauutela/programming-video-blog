@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import { LIKE_POST_QUERY, FETCH_POSTS_QUERY } from '../queries'
+import { LIKE_POST_QUERY, FETCH_POSTS_QUERY } from '../../queries'
 import { useMutation } from '@apollo/react-hooks'
+
+import './Post.css'
 
 const Post = ({ title, content, link, likes, id }) => {
 
@@ -19,9 +21,11 @@ const Post = ({ title, content, link, likes, id }) => {
     return (
         <Card fluid color='teal'>
             <Card.Content>
-                <Card.Header>{title}</Card.Header>
-                <Card.Meta>Posted 1.7.2020</Card.Meta>
-                <img src='https://img.youtube.com/vi/ysz5S6PUM-U/0.jpg' style={{ "width": "50%", "paddingTop": "2%", "paddingBottom": "2%" }} />
+                <Card.Header className='post-header'>{title}</Card.Header>
+                <Card.Meta style={{ "padding-bottom": "30px" }}>Posted 1.7.2020 By <Link className='post-user'>finnishr</Link></Card.Meta>
+                <div className='post-image-container'>
+                    <Link to={`/post/${id}`}><img src='https://img.youtube.com/vi/GieYIzvdt2U/0.jpg' className='post-image' /></Link>
+                </div>
                 <Card.Description>
                     <p>{content}</p>
                     <Link to={`/post/${id}`}>Full post</Link>

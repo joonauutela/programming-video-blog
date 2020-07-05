@@ -1,0 +1,17 @@
+.post-image-container {
+    width: 100%;
+    overflow:hidden;
+}
+
+.post-image {
+    width: 100%;
+    margin: -11% 0 -9.5% 0%;
+}
+
+.post-user {
+    color: rgb(143, 143, 255) !important;
+}
+
+.post-header {
+    padding: 1vh 0;
+}

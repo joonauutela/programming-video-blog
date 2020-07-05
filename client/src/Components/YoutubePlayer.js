@@ -15,7 +15,7 @@ const YoutubePlayer = () => {
         <div className="player-wrapper">
             <ReactPlayer
                 className="youtube-player"
-                url='https://www.youtube.com/watch?v=ysz5S6PUM-U'
+                url='https://www.youtube.com/watch?v=GieYIzvdt2U'
                 config={config}
                 width='100%'
                 height='100%'

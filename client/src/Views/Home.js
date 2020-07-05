@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks'
 import { FETCH_POSTS_QUERY } from '../queries'
 import { Grid } from 'semantic-ui-react'
 
-import Post from '../components/Post'
+import Post from '../components/Post/Post'
 import Loader from '../components/Loader'
 
 const Home = () => {
