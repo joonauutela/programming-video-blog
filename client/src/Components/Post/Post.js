@@ -22,7 +22,7 @@ const Post = ({ title, content, link, likes, id }) => {
         <Card fluid color='teal'>
             <Card.Content>
                 <Card.Header className='post-header'>{title}</Card.Header>
-                <Card.Meta style={{ "padding-bottom": "30px" }}>Posted 1.7.2020 By <Link className='post-user'>finnishr</Link></Card.Meta>
+                <Card.Meta style={{ "paddingBottom": "30px" }}>Posted 1.7.2020 By <Link className='post-user' to='/'>finnishr</Link></Card.Meta>
                 <div className='post-image-container'>
                     <Link to={`/post/${id}`}><img src='https://img.youtube.com/vi/GieYIzvdt2U/0.jpg' className='post-image' /></Link>
                 </div>

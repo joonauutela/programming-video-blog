@@ -5,11 +5,8 @@ module.exports = gql`
         id: ID!
         username: String!
         email: String!
-        passwordHash: String!
+        token: String!
         posts: [Post!]!
-    }
-    type Token {
-        value: String!
     }
     type Post {
         title: String!
@@ -38,12 +35,9 @@ module.exports = gql`
             link: String!
             content: String!
             category: String!
-        ): Post
-        likePost(id: ID!): Post
-        register(registerInput: RegisterInput): User
-        login(
-            username: String!
-            password: String!
-          ): Token
+        ): Post!
+        likePost(id: ID!): Post!
+        register(registerInput: RegisterInput): User!
+        login(username: String! password: String!): User!
     }
 `

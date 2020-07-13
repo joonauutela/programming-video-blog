@@ -60,7 +60,10 @@ export const LOGIN_USER = gql`
             username: $username,
             password: $password
         ) {
-            value
+            username,
+            id,
+            email,
+            token
         }
     }
 `

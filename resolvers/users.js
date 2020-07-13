@@ -8,6 +8,18 @@ require('dotenv').config()
 
 const SECRET_KEY = process.env.SECRET_KEY
 
+function generateToken(user) {
+    return jwt.sign(
+        {
+            id: user._id,
+            email: user.email,
+            username: user.username,
+        },
+        SECRET_KEY,
+        { expiresIn: '1h' }
+    );
+}
+
 module.exports = {
     Query: {
         getUsers: () => {
@@ -41,16 +53,23 @@ module.exports = {
                 errors.general = 'Wrong credentials'
                 throw new UserInputError("Wrong credentials", { errors })
             }
+
             const match = await bcrypt.compare(password, user.passwordHash)
             if (!match) {
                 errors.general = 'Wrong credentials'
                 throw new UserInputError("Wrong credentials", { errors })
             }
-            const userForToken = {
-                username: user.username,
+
+            const token = generateToken(user)
+
+            const loggedUser = {
                 id: user._id,
+                email: user.email,
+                username: user.username,
+                posts: user.posts,
+                token
             }
-            return { value: jwt.sign(userForToken, SECRET_KEY, { expiresIn: '1h' }) }
+            return loggedUser
         }
     }
 }
