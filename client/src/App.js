@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 
 import { AuthProvider, AuthContext } from './context/auth'
+import AuthRoute from './util/AuthRoute'
 
 import Home from './views/Home'
 import Login from './views/Login'
@@ -20,8 +21,8 @@ const App = () => {
         <Navbar />
         <Container>
           <Route exact path='/' component={Home} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/register' component={Register} />
+          <AuthRoute exact path='/login' component={Login} />
+          <AuthRoute exact path='/register' component={Register} />
           <Route path='/post/:id' component={PostDescription} />
         </Container>
       </Router>

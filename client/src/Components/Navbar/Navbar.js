@@ -37,7 +37,7 @@ const Navbar = () => {
                 <Menu.Item
                     className='menu-item'
                     name={user.username}
-                    active={activeItem === 'login'}
+                    active={activeItem === user.username}
                     onClick={handleItemClick}
                     as={Link}
                     to={`/users/${user.username}`}
@@ -46,9 +46,7 @@ const Navbar = () => {
                     className='menu-item'
                     name='logout'
                     active={activeItem === 'logout'}
-                    onClick={handleItemClick}
-                    as={Link}
-                    to='/logout'
+                    onClick={logout}
                 />
             </Menu.Menu>
         </Menu>
