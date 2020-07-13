@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { LIKE_POST_QUERY, FETCH_POSTS_QUERY } from '../../queries'
 import { useMutation } from '@apollo/react-hooks'

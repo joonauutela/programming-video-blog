@@ -1,8 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Container } from 'semantic-ui-react'
 
-import { AuthProvider, AuthContext } from './context/auth'
+import { AuthProvider } from './context/auth'
 import AuthRoute from './util/AuthRoute'
 
 import Home from './views/Home'

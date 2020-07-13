@@ -1,3 +1,11 @@
 .menu-item {
     color: white !important;
 }
+
+.ui.simple.dropdown.item {
+    color: white !important;
+}
+
+.ui.menu .dropdown.item .menu {
+    margin-top: -1px !important;
+}
