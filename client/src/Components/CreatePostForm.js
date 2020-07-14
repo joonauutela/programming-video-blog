@@ -22,6 +22,9 @@ const CreatePostForm = (props) => {
     const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
         variables: values,
         refetchQueries: [{ query: FETCH_POSTS_QUERY }],
+        onError(err) {
+            console.log(err.graphQLErrors[0].extensions.exception.errors)
+        },
         update(_, result) {
             console.log(result)
             values.title = ''

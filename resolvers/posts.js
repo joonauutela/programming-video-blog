@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Post = require('../models/Post')
+const { validateCreatePostInput } = require('../util/validators/createPost')
 const { AuthenticationError, UserInputError } = require('apollo-server')
 
 require('dotenv').config()
@@ -20,6 +21,13 @@ module.exports = {
     },
     Mutation: {
         addPost: async (_, args, { currentUser }) => {
+            const { valid, errors } = validateCreatePostInput(args.title, args.link, args.content)
+            // Check if passes all validators
+            if (!valid) {
+                throw new UserInputError('Errors', { errors })
+            }
+
+            // Check if passes authentication
             if (!currentUser) {
                 throw new AuthenticationError("not authenticated")
             }
