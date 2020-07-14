@@ -27,7 +27,7 @@ const Post = ({ title, content, link, likes, id }) => {
                     <Link to={`/post/${id}`}><img src='https://img.youtube.com/vi/GieYIzvdt2U/0.jpg' className='post-image' /></Link>
                 </div>
                 <Card.Description>
-                    <p>{content}</p>
+                    <p className='post-content'>{content}</p>
                     <Link to={`/post/${id}`}>Full post</Link>
                 </Card.Description>
             </Card.Content>

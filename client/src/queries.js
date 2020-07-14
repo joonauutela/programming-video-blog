@@ -67,3 +67,25 @@ export const LOGIN_USER = gql`
         }
     }
 `
+
+export const CREATE_POST_MUTATION = gql`
+mutation addPost(
+    $title: String!
+    $link: String!
+    $content: String!
+    $category: String!
+){
+  addPost(
+    title: $title
+    link: $link
+    content: $content
+    category: $category
+  )
+  {
+    title
+    link
+    content
+    category
+  }
+}
+`
