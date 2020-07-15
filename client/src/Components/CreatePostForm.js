@@ -24,6 +24,7 @@ const CreatePostForm = (props) => {
         refetchQueries: [{ query: FETCH_POSTS_QUERY }],
         onError(err) {
             console.log(err.graphQLErrors[0].extensions.exception.errors)
+            setErrors(err.graphQLErrors[0].extensions.exception.errors)
         },
         update(_, result) {
             console.log(result)
@@ -56,6 +57,7 @@ const CreatePostForm = (props) => {
                     name='title'
                     type='title'
                     value={values.title}
+                    error={errors.title ? true : false}
                     onChange={onChange}
                 />
                 <Form.Input
@@ -64,6 +66,7 @@ const CreatePostForm = (props) => {
                     name='link'
                     type='link'
                     value={values.link}
+                    error={errors.link ? true : false}
                     onChange={onChange}
                 />
                 <Form.TextArea
@@ -72,6 +75,7 @@ const CreatePostForm = (props) => {
                     name="content"
                     type='content'
                     value={values.content}
+                    error={errors.content ? true : false}
                     onChange={onChange}
                     rows="15"
                 />
