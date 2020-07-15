@@ -25,6 +25,7 @@ const Home = () => {
                                     link={post.link}
                                     likes={post.likes}
                                     content={post.content}
+                                    createdAt={post.createdAt}
                                     id={post.id}
                                 />
                             }
@@ -40,6 +41,7 @@ const Home = () => {
                                     link={post.link}
                                     likes={post.likes}
                                     content={post.content}
+                                    createdAt={post.createdAt}
                                     id={post.id}
                                 />
                             }

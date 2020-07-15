@@ -27,9 +27,12 @@ const schema = new mongoose.Schema({
     category: {
         type: String,
         required: true
-    }
+    },
     //TODO: Create comments attribute
-    // createdAt: Date
+    createdAt: {
+        type: String,
+        required: true
+    }
 })
 
 module.exports = mongoose.model('Post', schema)

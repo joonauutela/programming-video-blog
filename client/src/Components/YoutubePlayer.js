@@ -2,7 +2,7 @@ import React from 'react'
 import ReactPlayer from 'react-player'
 import '../App.css'
 
-const YoutubePlayer = () => {
+const YoutubePlayer = ({ link }) => {
 
     const config = {
         youtube: {
@@ -15,7 +15,7 @@ const YoutubePlayer = () => {
         <div className="player-wrapper">
             <ReactPlayer
                 className="youtube-player"
-                url='https://www.youtube.com/watch?v=GieYIzvdt2U'
+                url={link}
                 config={config}
                 width='100%'
                 height='100%'

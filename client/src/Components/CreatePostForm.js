@@ -1,15 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { useMutation } from '@apollo/react-hooks'
-import { LOGIN_USER } from '../queries'
 import { withRouter } from 'react-router-dom'
 import { CREATE_POST_MUTATION, FETCH_POSTS_QUERY } from '../queries'
 
-import { AuthContext } from '../context/auth'
 import { useForm } from '../util/hooks'
 
 const CreatePostForm = (props) => {
-    const context = useContext(AuthContext)
     const [errors, setErrors] = useState({})
 
     const { onChange, onSubmit, values } = useForm(createPostCallback, {
@@ -23,8 +20,12 @@ const CreatePostForm = (props) => {
         variables: values,
         refetchQueries: [{ query: FETCH_POSTS_QUERY }],
         onError(err) {
-            console.log(err.graphQLErrors[0].extensions.exception.errors)
-            setErrors(err.graphQLErrors[0].extensions.exception.errors)
+            const graphqlErrors = err.graphQLErrors[0].extensions.exception.errors
+            if (graphqlErrors) {
+                setErrors(graphqlErrors)
+            } else {
+                setErrors({})
+            }
         },
         update(_, result) {
             console.log(result)
@@ -62,7 +63,7 @@ const CreatePostForm = (props) => {
                 />
                 <Form.Input
                     label='Youtube link'
-                    placeholder='Youtube link here..'
+                    placeholder='Video link here..'
                     name='link'
                     type='link'
                     value={values.link}

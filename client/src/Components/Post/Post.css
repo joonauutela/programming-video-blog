@@ -19,3 +19,8 @@
 .post-content {
     overflow-wrap: break-word;
 }
+
+.like-icon {
+    padding-bottom: 7.5% !important;
+    padding-left: 1%;
+}

@@ -7,7 +7,8 @@ export const FETCH_POSTS_QUERY = gql`
      content,
      link,
      id,
-     likes
+     likes,
+     createdAt
  }
 }
 `
@@ -19,6 +20,7 @@ export const FETCH_POST_QUERY = gql`
             content
             link
             likes
+            createdAt
         }
     }
 `

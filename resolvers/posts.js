@@ -34,7 +34,8 @@ module.exports = {
             const post = new Post({
                 ...args,
                 user: currentUser,
-                likes: 0
+                likes: 0,
+                createdAt: new Date().toISOString()
             })
             try {
                 const savedPost = await post.save()
