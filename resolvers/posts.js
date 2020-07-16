@@ -34,7 +34,7 @@ module.exports = {
             const post = new Post({
                 ...args,
                 user: currentUser,
-                likes: 0,
+                likes: [],
                 createdAt: new Date().toISOString()
             })
             try {
@@ -49,13 +49,27 @@ module.exports = {
             return post
         },
         likePost: async (_, args, { currentUser }) => {
-            //if (!currentUser) {
-            //    throw new AuthenticationError("not authenticated")
-            //}
-            const post = await Post.findById(args.id)
-            post.likes++
-            return await post.save()
+            if (!currentUser) {
+                throw new AuthenticationError("not authenticated")
+            }
 
+            const post = await Post.findById(args.id);
+            const username = currentUser.username
+            if (post) {
+                if (post.likes.find((like) => like.username === username)) {
+                    // Post already likes, unlike it
+                    post.likes = post.likes.filter((like) => like.username !== username);
+                } else {
+                    // Not liked, like post
+                    post.likes.push({
+                        username,
+                        createdAt: new Date().toISOString()
+                    });
+                }
+
+                await post.save();
+                return post;
+            } else throw new UserInputError('Post not found');
         }
     }
 }

@@ -1,23 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Card, Icon, Button, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { getVideoID, getDate } from '../../util/hooks'
-import { LIKE_POST_QUERY, FETCH_POSTS_QUERY } from '../../queries'
-import { useMutation } from '@apollo/react-hooks'
+import { AuthContext } from '../../context/auth';
 
 import './Post.css'
+import LikeButton from '../LikeButton'
 
 const Post = ({ title, content, link, likes, id, createdAt }) => {
 
-    const [isLiked, setIsLiked] = useState(false)
-
-    const [like] = useMutation(LIKE_POST_QUERY, {
-        refetchQueries: [{ query: FETCH_POSTS_QUERY }]
-    })
-    const likePost = () => {
-        like({ variables: { id } }).
-            then(setIsLiked(true))
-    }
+    const { user } = useContext(AuthContext)
 
     return (
         <Card fluid color='teal'>
@@ -33,14 +25,7 @@ const Post = ({ title, content, link, likes, id, createdAt }) => {
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <Button as="div" labelPosition="right" onClick={likePost}>
-                    <Button color="teal" basic>
-                        <Icon name="heart" />
-                    </Button>
-                    <Label basic color="teal" pointing="left">
-                        {likes}
-                    </Label>
-                </Button>
+                <LikeButton id={id} likes={likes} user={user} />
                 <Button as="div" labelPosition="right">
                     <Button color="blue" basic>
                         <Icon name="comments" />

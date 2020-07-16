@@ -13,10 +13,15 @@ module.exports = gql`
         link: String!
         content: String!
         user: User!
-        likes: Int!
+        likes: [Like!]!
         category: String!
         id: ID!
         createdAt: String!
+    }
+    type Like {
+        id: ID!
+        createdAt: String!
+        username: String!
     }
     input RegisterInput {
         username: String!

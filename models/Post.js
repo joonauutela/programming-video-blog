@@ -20,10 +20,12 @@ const schema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    likes: {
-        type: Number,
-        required: true
-    },
+    likes: [
+        {
+            username: String,
+            createdAt: String
+        }
+    ],
     category: {
         type: String,
         required: true
