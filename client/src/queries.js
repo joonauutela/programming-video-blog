@@ -11,7 +11,7 @@ export const FETCH_POSTS_QUERY = gql`
          id
          createdAt
          username
-     },
+     }
      createdAt
  }
 }
@@ -23,7 +23,10 @@ export const FETCH_POST_QUERY = gql`
             title
             content
             link
-            likes
+            likes {
+                id
+                username
+            }
             createdAt
         }
     }

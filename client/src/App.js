@@ -6,7 +6,7 @@ import { AuthProvider } from './context/auth'
 import UnauthenticatedRoute from './util/UnauthenticatedRoute'
 import AuthenticatedRoute from './util/AuthenticatedRoute'
 
-import Home from './views/Home'
+import Home from './views/Home/Home'
 import Login from './views/Login'
 import Register from './views/Register'
 import Navbar from './components/Navbar/Navbar'

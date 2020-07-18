@@ -26,11 +26,17 @@ const schema = new mongoose.Schema({
             createdAt: String
         }
     ],
+    comments: [
+        {
+            body: String,
+            username: String,
+            createdAt: String
+        }
+    ],
     category: {
         type: String,
         required: true
     },
-    //TODO: Create comments attribute
     createdAt: {
         type: String,
         required: true

@@ -13,10 +13,17 @@ module.exports = gql`
         link: String!
         content: String!
         user: User!
-        likes: [Like!]!
+        likes: [Like]!
+        comments: [Comment]!
         category: String!
         id: ID!
         createdAt: String!
+    }
+    type Comment {
+        id: ID!
+        createdAt: String!
+        username: String!
+        body: String!
     }
     type Like {
         id: ID!
@@ -43,6 +50,7 @@ module.exports = gql`
             category: String!
         ): Post!
         likePost(id: ID!): Post!
+        createComment(postId: ID! body: String!): Post!
         register(registerInput: RegisterInput): User!
         login(username: String! password: String!): User!
     }

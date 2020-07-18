@@ -1,10 +1,12 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
-import { FETCH_POSTS_QUERY } from '../queries'
+import { FETCH_POSTS_QUERY } from '../../queries'
 import { Grid } from 'semantic-ui-react'
 
-import Post from '../components/Post/Post'
-import Loader from '../components/Loader'
+import Post from '../../components/Post/Post'
+import Loader from '../../components/Loader'
+
+import './Home.css'
 
 const Home = () => {
     const { loading, data } = useQuery(FETCH_POSTS_QUERY)
@@ -12,8 +14,8 @@ const Home = () => {
         return <Loader />
     }
     return (
-        <div>
-            <h1 style={{ "textAlign": "center", "paddingBottom": "2%" }}>All posts</h1>
+        <div className='posts-container'>
+            <h1 style={{ "textAlign": "center", "paddingBottom": "2%" }}>Posts</h1>
             <Grid divided='vertically'>
                 <Grid.Row columns={2}>
                     <Grid.Column>

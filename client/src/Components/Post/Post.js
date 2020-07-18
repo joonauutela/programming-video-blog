@@ -3,9 +3,9 @@ import { Card, Icon, Button, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { getVideoID, getDate } from '../../util/hooks'
 import { AuthContext } from '../../context/auth';
+import LikeButton from '../LikeButton'
 
 import './Post.css'
-import LikeButton from '../LikeButton'
 
 const Post = ({ title, content, link, likes, id, createdAt }) => {
 
