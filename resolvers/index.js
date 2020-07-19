@@ -4,7 +4,6 @@ const commentsResolvers = require('./comments')
 
 module.exports = {
     Query: {
-        ping: () => 'Pinged2',
         ...userResolvers.Query,
         ...postResolvers.Query,
         ...commentsResolvers.Query

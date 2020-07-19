@@ -4,7 +4,13 @@ export const useForm = (callback, initialState = {}) => {
     const [values, setValues] = useState(initialState)
 
     const onChange = (event) => {
-        setValues({ ...values, [event.target.name]: event.target.value })
+        if (event.target.name === 'categories') {
+            // Add new category to categories-array
+            setValues({ ...values, [event.target.name]: values.categories.concat(event.target.value) })
+        } else {
+            setValues({ ...values, [event.target.name]: event.target.value })
+        }
+        console.log(values)
     }
 
     const onSubmit = (event) => {
