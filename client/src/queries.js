@@ -82,19 +82,19 @@ mutation addPost(
     $title: String!
     $link: String!
     $content: String!
-    $category: String!
+    $categories: [String]!
 ){
   addPost(
     title: $title
     link: $link
     content: $content
-    category: $category
+    categories: $categories
   )
   {
     title
     link
     content
-    category
+    categories
   }
 }
 `

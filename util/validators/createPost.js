@@ -1,4 +1,4 @@
-module.exports.validateCreatePostInput = (title, link, content) => {
+module.exports.validateCreatePostInput = (title, link, content, categories) => {
     const errors = {}
 
     // Title --
@@ -16,12 +16,19 @@ module.exports.validateCreatePostInput = (title, link, content) => {
     if (!link.match(regEx) && !errors.link) {
         errors.link = 'Please provide a valid YouTube-link';
     }
-    //Content -- 
+    // Content -- 
     if (content.trim() === '') {
         errors.content = 'Content must not be empty'
     }
     if (content.length > 255) {
         errors.content = 'Content length is too long'
+    }
+    // Categories --
+    if (categories.length === 0) {
+        errors.categories = 'Add at least one category'
+    }
+    if (categories.length > 3) {
+        errors.categories = 'Too many categories'
     }
 
     return {

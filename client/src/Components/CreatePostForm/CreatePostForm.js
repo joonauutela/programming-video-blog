@@ -10,7 +10,8 @@ import './CreatePostForm.css'
 
 const CreatePostForm = (props) => {
     const [errors, setErrors] = useState({})
-    const [category, setCategory] = useState('node')
+    const [categories, setCategories] = useState([])
+    const [category, setCategory] = useState('')
 
     const { onChange, onSubmit, values } = useForm(createPostCallback, {
         title: '',
@@ -23,11 +24,11 @@ const CreatePostForm = (props) => {
             title: values.title,
             link: values.link,
             content: values.content,
-            category
+            categories
         },
         refetchQueries: [{ query: FETCH_POSTS_QUERY }],
         onError(err) {
-            console.log(err)
+            console.log(err.graphQLErrors[0])
             const graphqlErrors = err.graphQLErrors[0].extensions.exception.errors
             if (graphqlErrors) {
                 setErrors(graphqlErrors)
@@ -42,6 +43,18 @@ const CreatePostForm = (props) => {
             values.content = ''
         }
     })
+
+    const addCategory = () => {
+        if (!(categories.length >= 3 || categories.includes(category))) {
+            setCategories([...categories, category])
+            setCategory('')
+        }
+    }
+
+    const removeCategory = (category) => {
+        const newCategories = categories.filter(c => c !== category)
+        setCategories(newCategories)
+    }
 
     function createPostCallback() {
         createPost()
@@ -94,8 +107,28 @@ const CreatePostForm = (props) => {
                     name='categories'
                     type='category'
                     value={category}
+                    error={errors.categories ? true : false}
                     onChange={event => setCategory(event.target.value)}
                 />
+                <div className='container'>
+                    <Button
+                        name='categories'
+                        type='button'
+                        value={category}
+                        onClick={() => addCategory()}
+                    >
+                        Add category
+                    </Button>
+                    <p className='selected-tags-label'>Selected tags:</p>
+                    {categories.map(category => (
+                        <Tag
+                            category={category}
+                            removeCategory={removeCategory}
+                            key={category}
+                        />
+                    )
+                    )}
+                </div>
                 <Button type='submit' primary className='submit-post'>
                     Create post
                 </Button>

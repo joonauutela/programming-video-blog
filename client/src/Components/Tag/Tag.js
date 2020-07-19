@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Tag = () => {
+const Tag = ({ category, removeCategory }) => {
     return (
         <span className="tag">
-            <span className='tag-title'>Tag</span>
+            <span className='tag-title'>{category}</span>
             <span className='tag-close-icon'
-                onClick={() => console.log('removed tag')}
+                onClick={() => removeCategory(category)}
             >
                 x
 						</span>

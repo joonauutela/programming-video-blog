@@ -21,7 +21,7 @@ module.exports = {
     },
     Mutation: {
         addPost: async (_, args, { currentUser }) => {
-            const { valid, errors } = validateCreatePostInput(args.title, args.link, args.content)
+            const { valid, errors } = validateCreatePostInput(args.title, args.link, args.content, args.categories)
             // Check if passes all validators
             if (!valid) {
                 throw new UserInputError('Errors', { errors })
