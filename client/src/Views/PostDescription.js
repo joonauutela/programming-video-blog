@@ -1,13 +1,15 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import { useQuery } from '@apollo/react-hooks'
+import { getDate } from '../util/hooks'
+import { FETCH_POST_QUERY } from '../queries'
+
 import YoutubePlayer from '../components/YoutubePlayer'
 import Comment from '../components/Comment/Comment'
 import CreateCommentForm from '../components/Comment/CreateCommentForm'
 import Loader from '../components/Loader'
+
 import '../App.css'
-import { useQuery } from '@apollo/react-hooks'
-import { getDate } from '../util/hooks'
-import { FETCH_POST_QUERY } from '../queries'
 
 const PostDescription = () => {
     const { id } = useParams()
