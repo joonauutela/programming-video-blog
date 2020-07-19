@@ -33,10 +33,11 @@ const schema = new mongoose.Schema({
             createdAt: String
         }
     ],
-    category: {
-        type: String,
-        required: true
-    },
+    categories: [
+        {
+            type: String
+        }
+    ],
     createdAt: {
         type: String,
         required: true

@@ -15,7 +15,7 @@ module.exports = gql`
         user: User!
         likes: [Like]!
         comments: [Comment]!
-        category: String!
+        categories: [String]!
         id: ID!
         createdAt: String!
     }
@@ -47,7 +47,7 @@ module.exports = gql`
             title: String!
             link: String!
             content: String!
-            category: String!
+            categories: [String]!
         ): Post!
         likePost(id: ID!): Post!
         createComment(postId: ID! body: String!): Post!

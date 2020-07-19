@@ -1,26 +1,30 @@
 import React, { useState } from 'react'
-import { Button, Form, Select } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 import { useMutation } from '@apollo/react-hooks'
 import { withRouter } from 'react-router-dom'
 import { CREATE_POST_MUTATION, FETCH_POSTS_QUERY } from '../../queries'
+import Tag from '../Tag/Tag'
 
 import { useForm } from '../../util/hooks'
-import SelectCategory from '../Selects/SelectCategory'
 import './CreatePostForm.css'
 
 const CreatePostForm = (props) => {
     const [errors, setErrors] = useState({})
-    const [category, setCategory] = useState([])
+    const [category, setCategory] = useState('node')
 
     const { onChange, onSubmit, values } = useForm(createPostCallback, {
         title: '',
         link: '',
-        content: '',
-        categories: []
+        content: ''
     })
 
     const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
-        variables: values,
+        variables: {
+            title: values.title,
+            link: values.link,
+            content: values.content,
+            category
+        },
         refetchQueries: [{ query: FETCH_POSTS_QUERY }],
         onError(err) {
             console.log(err)
@@ -89,15 +93,11 @@ const CreatePostForm = (props) => {
                     placeholder='Add category'
                     name='categories'
                     type='category'
-                    value={values.categories[-1]}
+                    value={category}
                     onChange={event => setCategory(event.target.value)}
                 />
-                <div className='container'>
-                    <p>Selected categories: {values.categories.map(category => <button>{category}</button>)}</p>
-                    <Button name='categories' type='button' value={category} onClick={onChange} >Add category</Button>
-                </div>
                 <Button type='submit' primary className='submit-post'>
-                    Register
+                    Create post
                 </Button>
             </Form>
         </div>
