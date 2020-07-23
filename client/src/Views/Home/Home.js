@@ -11,7 +11,7 @@ import SelectFilter from '../../components/Selects/SelectFilter'
 import './Home.css'
 
 const Home = () => {
-    const [category, setCategory] = useState('all')
+    const [category, setCategory] = useState('')
     const [filter, setFilter] = useState('mostRecent')
 
     const { loading, data } = useQuery(FETCH_POSTS_QUERY)
@@ -25,42 +25,22 @@ const Home = () => {
                 <SelectCategory category={category} setCategory={setCategory} />
                 <SelectFilter filter={filter} setFilter={setFilter} />
             </div>
-            <Grid divided='vertically'>
-                <Grid.Row columns={2}>
-                    <Grid.Column>
-                        {data.getPosts.map((post, index) => {
-                            if (!(index % 2)) {
-                                return <Post
-                                    key={post.id}
-                                    title={post.title}
-                                    link={post.link}
-                                    likes={post.likes}
-                                    content={post.content}
-                                    createdAt={post.createdAt}
-                                    id={post.id}
-                                />
-                            }
-                            return null
-                        })}
-                    </Grid.Column>
-                    <Grid.Column>
-                        {data.getPosts.map((post, index) => {
-                            if (index % 2) {
-                                return <Post
-                                    key={post.id}
-                                    title={post.title}
-                                    link={post.link}
-                                    likes={post.likes}
-                                    content={post.content}
-                                    createdAt={post.createdAt}
-                                    id={post.id}
-                                />
-                            }
-                            return null
-                        })}
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
+            <div>
+                {data.getPosts.map((post, index) => {
+                    if (post.categories.includes(category) || category === '') {
+                        return <Post
+                            key={post.id}
+                            title={post.title}
+                            link={post.link}
+                            likes={post.likes}
+                            content={post.content}
+                            createdAt={post.createdAt}
+                            id={post.id}
+                        />
+                    }
+                    return null
+                })}
+            </div>
         </div >
     )
 }

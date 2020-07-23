@@ -28,7 +28,6 @@ const CreatePostForm = (props) => {
         },
         refetchQueries: [{ query: FETCH_POSTS_QUERY }],
         onError(err) {
-            console.log(err.graphQLErrors[0])
             const graphqlErrors = err.graphQLErrors[0].extensions.exception.errors
             if (graphqlErrors) {
                 setErrors(graphqlErrors)
@@ -37,16 +36,17 @@ const CreatePostForm = (props) => {
             }
         },
         update(_, result) {
-            console.log(result)
             values.title = ''
             values.link = ''
             values.content = ''
+            setCategories([])
+            props.history.push('/')
         }
     })
 
     const addCategory = () => {
         if (!(categories.length >= 3 || categories.includes(category))) {
-            setCategories([...categories, category])
+            setCategories([...categories, category.toLowerCase()])
             setCategory('')
         }
     }
@@ -61,7 +61,7 @@ const CreatePostForm = (props) => {
     }
 
     return (
-        <div style={{ "width": "50%", "margin": "auto" }}>
+        <div className='create-post-container'>
             {Object.keys(errors).length > 0 &&
                 <div className='ui error message'>
                     <ul>

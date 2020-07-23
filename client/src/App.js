@@ -10,7 +10,7 @@ import Home from './views/Home/Home'
 import Login from './views/Login'
 import Register from './views/Register'
 import Navbar from './components/Navbar/Navbar'
-import PostDescription from './views/PostDescription'
+import PostDescription from './views/PostDescription/PostDescription'
 import CreatePost from './views/CreatePost'
 
 import 'semantic-ui-css/semantic.min.css'

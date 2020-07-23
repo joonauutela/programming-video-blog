@@ -15,9 +15,9 @@ const Post = ({ title, content, link, likes, id, createdAt }) => {
         <Card fluid color='teal'>
             <Card.Content>
                 <Card.Header className='post-header'>{title}</Card.Header>
-                <Card.Meta style={{ "paddingBottom": "30px" }}>Posted {getDate(createdAt)} By <Link className='post-user' to='/'>finnishr</Link></Card.Meta>
+                <Card.Meta className='post-info'>Posted {getDate(createdAt)} By <Link className='post-user' to='/'>finnishr</Link></Card.Meta>
                 <div className='post-image-container'>
-                    <Link to={`/post/${id}`}><img src={`https://img.youtube.com/vi/${getVideoID(link)}/0.jpg`} className='post-image' /></Link>
+                    <Link to={`/post/${id}`}><img src={`https://i.ytimg.com/vi/${getVideoID(link)}/maxresdefault.jpg`} className='post-image' /></Link>
                 </div>
                 <Card.Description>
                     <p className='post-content'>{content}</p>

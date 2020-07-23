@@ -7,7 +7,7 @@ const SelectCategory = ({ category, setCategory }) => {
         <div>
             <h3 className='filter-categories-header'>Categories</h3>
             <div className='filters'>
-                <button className={category === 'all' ? 'filter-button-active' : 'filter-button'} onClick={() => setCategory('all')}>All</button>
+                <button className={category === '' ? 'filter-button-active' : 'filter-button'} onClick={() => setCategory('')}>All</button>
                 <button className={category === 'react' ? 'filter-button-active' : 'filter-button'} onClick={() => setCategory('react')}>React</button>
                 <button className={category === 'css' ? 'filter-button-active' : 'filter-button'} onClick={() => setCategory('css')}>CSS</button>
                 <button className={category === 'html' ? 'filter-button-active' : 'filter-button'} onClick={() => setCategory('html')}>HTML</button>

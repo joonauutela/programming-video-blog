@@ -1,0 +1,31 @@
+
+.post-container {
+    background: rgb(255, 255, 255);
+    margin-bottom: 4rem;
+    padding: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+  
+.post-inner-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.comment-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding-top: 5%;
+}
+
+.postInfo {
+    font-style: italic;
+}
+
+.post-content {
+    padding-top: 1%;
+    border-top: 1px;
+}

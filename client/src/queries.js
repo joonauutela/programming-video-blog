@@ -13,6 +13,7 @@ export const FETCH_POSTS_QUERY = gql`
          username
      }
      createdAt
+     categories
  }
 }
 `
