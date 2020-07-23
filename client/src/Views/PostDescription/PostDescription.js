@@ -23,8 +23,8 @@ const PostDescription = () => {
         <div className="post-container">
             <div className="post-inner-container">
                 <h1>{data.getPost.title}</h1>
-                <p className="postInfo">Post made by Joona Uutela at {getDate(data.getPost.createdAt)}</p>
-                <YoutubePlayer className="videoPlayer" link={data.getPost.link} />
+                <p className="post-info">Post made by Joona Uutela at {getDate(data.getPost.createdAt)}</p>
+                <YoutubePlayer className="video-player" link={data.getPost.link} />
                 <br />
                 <hr />
                 <h3 className="post-content-header">User description</h3>

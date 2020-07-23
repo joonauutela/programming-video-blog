@@ -28,3 +28,15 @@ export const getDate = (unmodifiedDate) => {
     const dateArray = unmodifiedDate.split('T')[0].split('-')
     return `${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`
 }
+
+export const filterPosts = (allPosts, category, filter) => {
+    const filteredPosts = allPosts.filter(post => post.categories.includes(category) || category === '')
+    if (filter === 'likes') {
+        filteredPosts.sort((a, b) => {
+            return b.likes.length - a.likes.length
+        })
+    }
+    // TODO: Comment filter
+
+    return filteredPosts
+}
