@@ -1,17 +1,22 @@
 import React from 'react'
+import moment from 'moment'
+
 import './Comment.css'
 
-const Comment = () => {
+const Comment = ({ comment }) => {
+
+    if (!comment) return null
     return (
-        <div class="ui comments">
-            <div class="comment">
-                <div class="content">
-                    <a class="author">Tom Lukic</a>
-                    <div class="metadata">
-                        <span class="date">Today at 5:42PM</span>
+        <div className="ui comments">
+            {console.log(comment)}
+            <div className="comment">
+                <div className="content">
+                    <a className="author">{comment.username}</a>
+                    <div className="metadata">
+                        <span className="date">{moment(comment.createdAt).fromNow()}</span>
                     </div>
-                    <div class="text">
-                        This will be great for business reports. I will definitely download this.
+                    <div className="text">
+                        {comment.body}
                     </div>
                 </div>
             </div>

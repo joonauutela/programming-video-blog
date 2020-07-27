@@ -33,8 +33,14 @@ const PostDescription = () => {
                 <hr />
             </div>
             <div className="comment-container">
-                <Comment />
-                <CreateCommentForm />
+                <h3>Comments</h3>
+                {data.getPost.comments.length === 0 &&
+                    <h4>Add the first comment!</h4>
+                }
+                {data.getPost.comments.map(comment => {
+                    return <Comment key={comment.id} comment={comment} />
+                })}
+                <CreateCommentForm postId={id} />
             </div>
         </div>
     )

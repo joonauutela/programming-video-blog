@@ -14,6 +14,11 @@ export const FETCH_POSTS_QUERY = gql`
      }
      createdAt
      categories
+     comments {
+        username
+        createdAt
+        body
+    }
  }
 }
 `
@@ -29,6 +34,12 @@ export const FETCH_POST_QUERY = gql`
                 username
             }
             createdAt
+            comments {
+                id
+                username
+                createdAt
+                body
+            }
         }
     }
 `
@@ -98,4 +109,12 @@ mutation addPost(
     categories
   }
 }
+`
+
+export const CREATE_COMMENT_MUTATION = gql`
+    mutation($postId: ID!, $body: String!){
+        createComment(postId: $postId, body: $body){
+            id
+        }
+    }
 `
