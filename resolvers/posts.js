@@ -26,14 +26,13 @@ module.exports = {
             if (!valid) {
                 throw new UserInputError('Errors', { errors })
             }
-
             // Check if passes authentication
             if (!currentUser) {
                 throw new AuthenticationError("not authenticated")
             }
             const post = new Post({
                 ...args,
-                user: currentUser,
+                username: currentUser.username,
                 likes: [],
                 createdAt: new Date().toISOString()
             })
@@ -47,6 +46,22 @@ module.exports = {
                 })
             }
             return post
+        },
+        deletePost: async (_, { id }, { currentUser }) => {
+            if (!currentUser) {
+                throw new AuthenticationError("not authenticated")
+            }
+            try {
+                const post = await Post.findById(id)
+                if (currentUser.username === post.username) {
+                    await post.delete();
+                    return 'Post deleted successfully';
+                } else {
+                    throw new AuthenticationError('Action not allowed');
+                }
+            } catch (err) {
+                throw new Error(err)
+            }
         },
         likePost: async (_, args, { currentUser }) => {
             if (!currentUser) {

@@ -3,11 +3,13 @@ import { Card, Icon, Button, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { getVideoID, getDate } from '../../util/hooks'
 import { AuthContext } from '../../context/auth';
+
 import LikeButton from '../LikeButton'
+import DeleteButton from '../DeleteButton'
 
 import './Post.css'
 
-const Post = ({ title, content, link, likes, id, createdAt }) => {
+const Post = ({ title, content, link, likes, id, createdAt, postedBy }) => {
 
     const { user } = useContext(AuthContext)
 
@@ -15,7 +17,7 @@ const Post = ({ title, content, link, likes, id, createdAt }) => {
         <Card fluid color='teal'>
             <Card.Content>
                 <Card.Header className='post-header'>{title}</Card.Header>
-                <Card.Meta className='post-info'>Posted {getDate(createdAt)} By <Link className='post-user' to='/'>finnishr</Link></Card.Meta>
+                <Card.Meta className='post-info'>Posted {getDate(createdAt)} By <Link className='post-user' to='/'>{postedBy}</Link></Card.Meta>
                 <div className='post-image-container'>
                     <Link to={`/post/${id}`}><img src={`https://i.ytimg.com/vi/${getVideoID(link)}/maxresdefault.jpg`} className='post-image' /></Link>
                 </div>
@@ -26,16 +28,22 @@ const Post = ({ title, content, link, likes, id, createdAt }) => {
             </Card.Content>
             <Card.Content extra>
                 <LikeButton id={id} likes={likes} user={user} />
-                <Button as="div" labelPosition="right">
-                    <Button color="blue" basic>
-                        <Icon name="comments" />
-                    </Button>
-                    <Label basic color="blue" pointing="left">
-                        0
+                <Link to={`/post/${id}`}>
+                    <Button as="div" labelPosition="right">
+                        <Button color="blue" basic>
+                            <Icon name="comments" />
+                        </Button>
+                        <Label basic color="blue" pointing="left">
+                            0
                     </Label>
-                </Button>
+                    </Button>
+                </Link>
+
+                {user && user.username === postedBy && (
+                    <DeleteButton id={id} />
+                )}
             </Card.Content>
-        </Card>
+        </Card >
     )
 }
 

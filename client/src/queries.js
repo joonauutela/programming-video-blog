@@ -7,6 +7,7 @@ export const FETCH_POSTS_QUERY = gql`
      content
      link
      id
+     username
      likes {
          id
          createdAt
@@ -109,6 +110,12 @@ mutation addPost(
     categories
   }
 }
+`
+
+export const DELETE_POST_MUTATION = gql`
+    mutation deletePost($id: ID!){
+        deletePost(id: $id)
+    }
 `
 
 export const CREATE_COMMENT_MUTATION = gql`

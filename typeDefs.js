@@ -12,7 +12,7 @@ module.exports = gql`
         title: String!
         link: String!
         content: String!
-        user: User!
+        username: String!
         likes: [Like]!
         comments: [Comment]!
         categories: [String]!
@@ -50,6 +50,7 @@ module.exports = gql`
             categories: [String]!
         ): Post!
         likePost(id: ID!): Post!
+        deletePost(id: ID!): String!
         createComment(postId: ID! body: String!): Post!
         register(registerInput: RegisterInput): User!
         login(username: String! password: String!): User!

@@ -16,9 +16,9 @@ const schema = new mongoose.Schema({
         required: true,
         minlength: 4
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+    username: {
+        type: String,
+        required: true
     },
     likes: [
         {

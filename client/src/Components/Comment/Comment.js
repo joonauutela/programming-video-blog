@@ -8,7 +8,6 @@ const Comment = ({ comment }) => {
     if (!comment) return null
     return (
         <div className="ui comments">
-            {console.log(comment)}
             <div className="comment">
                 <div className="content">
                     <a className="author">{comment.username}</a>

@@ -16,6 +16,7 @@ const PostDescription = () => {
     const { data, loading } = useQuery(FETCH_POST_QUERY, {
         variables: { id }
     })
+
     if (loading) {
         return <Loader />
     }

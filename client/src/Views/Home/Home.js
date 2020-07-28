@@ -34,7 +34,6 @@ const Home = () => {
         <div className='posts-container'>
             <h1 className='posts-header'>Posts</h1>
             <div className='select-wrapper'>
-                {console.log(filteredPosts)}
                 <SelectCategory category={category} setCategory={setCategory} />
                 <SelectFilter filter={filter} setFilter={setFilter} />
             </div>
@@ -47,6 +46,7 @@ const Home = () => {
                         likes={post.likes}
                         content={post.content}
                         createdAt={post.createdAt}
+                        postedBy={post.username}
                         id={post.id}
                     />
                 })}
