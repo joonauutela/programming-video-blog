@@ -1,11 +1,34 @@
-.menu-item {
-    color: white !important;
-}
+@media (min-width : 800px) {
+    .menu-item {
+        color: white !important;
+        margin: 0 0.5vmin !important;
+        font-size: 1.3rem;
+    }
 
-.ui.simple.dropdown.item {
-    color: white !important;
+    .ui.simple.dropdown.item {
+        color: white !important;
+        margin: 0 0.5vmin !important;
+        font-size: 1.3rem;
+    }
+}
+@media (max-width : 800px) {
+    .menu-item {
+        color: white !important;
+        margin: 0 0.1vmin !important;
+        font-size: 1rem;
+    }
+    .ui.simple.dropdown.item {
+        color: white !important;
+        margin: 0 0.1vmin !important;
+        font-size: 1rem;
+    }
 }
 
 .ui.menu .dropdown.item .menu {
     margin-top: -1px !important;
+}
+
+.menu-container {
+    background: black !important;
+   
 }
