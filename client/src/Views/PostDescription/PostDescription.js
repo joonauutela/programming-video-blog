@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
 import { getDate } from '../../util/hooks'
 import { FETCH_POST_QUERY } from '../../queries'
+import { AuthContext } from '../../context/auth'
 
 import YoutubePlayer from '../../components/YoutubePlayer'
 import Comment from '../../components/Comment/Comment'
@@ -12,6 +13,9 @@ import Loader from '../../components/Loader'
 import './PostDescription.css'
 
 const PostDescription = () => {
+
+    const { user } = useContext(AuthContext)
+
     const { id } = useParams()
     const { data, loading } = useQuery(FETCH_POST_QUERY, {
         variables: { id }
@@ -39,7 +43,7 @@ const PostDescription = () => {
                     <h4>Add the first comment!</h4>
                 }
                 {data.getPost.comments.map(comment => {
-                    return <Comment key={comment.id} comment={comment} />
+                    return <Comment key={comment.id} comment={comment} user={user} postId={id} />
                 })}
                 <CreateCommentForm postId={id} />
             </div>

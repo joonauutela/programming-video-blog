@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form } from 'semantic-ui-react'
 import { useMutation } from '@apollo/react-hooks'
-import { CREATE_COMMENT_MUTATION } from '../../queries'
+import { CREATE_COMMENT_MUTATION, FETCH_POST_QUERY } from '../../queries'
 
 const CreateCommentForm = ({ postId }) => {
     const [comment, setComment] = useState('')
@@ -10,6 +10,7 @@ const CreateCommentForm = ({ postId }) => {
         update() {
             setComment('')
         },
+        refetchQueries: [{ query: FETCH_POST_QUERY, variables: { id: postId } }],
         variables: {
             postId,
             body: comment
@@ -31,7 +32,7 @@ const CreateCommentForm = ({ postId }) => {
                 <button
                     type="submit"
                     className="ui blue labeled submit icon button"
-                    disabled={comment.trim() === ''}
+                    disabled={comment.trim() === ""}
                     onClick={submitComment}
                 >
                     <i className="icon edit"></i>

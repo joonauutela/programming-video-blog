@@ -51,13 +51,13 @@ const Home = () => {
                             <p style={{ fontSize: "1.33em" }}>
                                 Find useful programming related videos on new and old technologies
                                 that deserve more traffic and attention. Up your skills to the next level.
-            </p>
+                            </p>
                             <Header as="h3" style={{ fontSize: "2em" }}>
                                 Second header that has nothing
-            </Header>
+                            </Header>
                             <p style={{ fontSize: "1.33em" }}>
                                 Yes that's right, theres nothing here yet. Lorem ipsum ja niin edelleen. Filler text.
-            </p>
+                            </p>
                         </Grid.Column>
                         <Grid.Column floated="right" width={6}>
                             <Image
@@ -68,11 +68,7 @@ const Home = () => {
                             />
                         </Grid.Column>
                     </Grid.Row>
-                    <Grid.Row>
-                        <Grid.Column textAlign="center">
-                            <Button size="huge">All Posts</Button>
-                        </Grid.Column>
-                    </Grid.Row>
+
                 </Grid>
             </Segment>
         </div>

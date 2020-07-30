@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import { Button, Confirm, Icon } from 'semantic-ui-react'
 import { useMutation } from '@apollo/react-hooks'
-import { DELETE_POST_MUTATION, FETCH_POSTS_QUERY } from '.././queries'
+import { DELETE_COMMENT_MUTATION, FETCH_POST_QUERY } from '../../queries'
 
-const DeleteButton = ({ id }) => {
+const DeleteComment = ({ postId, commentId }) => {
     const [confirmOpen, setConfirmOpen] = useState(false)
 
-    const [deletePost] = useMutation(DELETE_POST_MUTATION, {
+    const [deleteComment] = useMutation(DELETE_COMMENT_MUTATION, {
         update() {
             setConfirmOpen(false)
         },
-        refetchQueries: [{ query: FETCH_POSTS_QUERY }],
+        refetchQueries: [{ query: FETCH_POST_QUERY, variables: { id: postId } }],
         variables: {
-            id
+            postId,
+            commentId
         }
     })
     return (
@@ -28,10 +29,10 @@ const DeleteButton = ({ id }) => {
             <Confirm
                 open={confirmOpen}
                 onCancel={() => setConfirmOpen(false)}
-                onConfirm={deletePost}
+                onConfirm={deleteComment}
             />
         </>
     )
 }
 
-export default DeleteButton
+export default DeleteComment

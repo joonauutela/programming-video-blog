@@ -5,7 +5,7 @@ import { getVideoID, getDate } from '../../util/hooks'
 import { AuthContext } from '../../context/auth';
 
 import LikeButton from '../LikeButton'
-import DeleteButton from '../DeleteButton'
+import DeleteButton from '../DeleteButton/DeletePost'
 
 import './Post.css'
 
