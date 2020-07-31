@@ -1,11 +1,11 @@
 .hero-container {
-    background: rgba(0, 0, 0, 0.781) !important;
+    background: url('../../media/posts-header.jpg');
     text-align: center;
     padding: 5%;
-    margin-top: -2%;
+ 
 }
 
 .segment-container {
-    background: rgba(255, 255, 255, 0.65) !important;
+    background: rgba(255, 255, 255, 0.856) !important;
     padding: 8em 0em !important;
 }

@@ -1,6 +1,6 @@
 .posts-container {
     background: rgba(255, 255, 255, 0.781);
-    padding: 3% 10%;
+
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
 
 }
@@ -21,6 +21,35 @@
 }
 
 
-  .active {
-      background: rgb(119, 255, 119);
-  }
+.active {
+    background: rgb(119, 255, 119);
+}
+
+.posts-header-img {
+    width: 33.3%;
+}
+
+.post {
+    width: 20px !important;
+}
+
+.img-container {
+    width: 70% !important;
+}
+
+.section-container {
+    padding:  3% 4% !important;
+    background: rgba(255, 255, 255, 0.548);
+    border-right: 1px solid rgba(0, 0, 0, 0.116);
+}
+
+.sidebar-container {
+    background: rgba(255, 255, 255, 0.342);
+    border-left: 2px;
+}
+
+.posts-hero-container {
+    background: url('../../media/posts-header.jpg');
+    text-align: center;
+    padding: 5%;
+}

@@ -24,8 +24,8 @@ const App = () => {
       <Router>
         <Navbar />
         <Route exact path='/' component={Home} />
+        <Route exact path='/posts' component={AllPosts} />
         <Container>
-          <Route exact path='/posts' component={AllPosts} />
           <UnauthenticatedRoute exact path='/login' component={Login} />
           <UnauthenticatedRoute exact path='/register' component={Register} />
           <AuthenticatedRoute exact path='/create-post' component={CreatePost} />
@@ -37,4 +37,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default App

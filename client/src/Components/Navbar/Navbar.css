@@ -24,6 +24,10 @@
     }
 }
 
+.ui.menu {
+    margin: 0;
+}
+
 .ui.menu .dropdown.item .menu {
     margin-top: -1px !important;
 }
