@@ -1,11 +1,21 @@
 .hero-container {
-    background: url('../../media/posts-header.jpg');
-    text-align: center;
+    background: url('../../media/laptop.jpg')center/cover no-repeat;
+    min-height: calc(90vh);
     padding: 5%;
- 
+}
+
+.hero-header-container {
+    display: inline-block;
+    color: black;
+    padding: 8% 4%;
+    width: 90%;
 }
 
 .segment-container {
-    background: rgba(255, 255, 255, 0.856) !important;
-    padding: 8em 0em !important;
+    background: whitesmoke !important;
+        padding: 8em 0em !important;
+}
+
+.icon-check {
+    color: rgba(51, 163, 255, 0.733);
 }

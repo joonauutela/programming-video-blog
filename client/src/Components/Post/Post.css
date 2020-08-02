@@ -4,11 +4,11 @@
 }
 
 .post-image {
-    width: 100%;
+    width: 50%;
 }
 
 .post-info {
-    padding-bottom: 3vh;
+    padding-bottom: 1vh;
 }
 
 .post-user {
@@ -16,7 +16,7 @@
 }
 
 .post-header {
-    padding: 1vh 0;
+    
 }
 
 .post-content {
@@ -26,4 +26,8 @@
 .like-icon {
     padding-bottom: 7.5% !important;
     padding-left: 1%;
+}
+
+.buttons-container {
+    padding: 2% 0
 }

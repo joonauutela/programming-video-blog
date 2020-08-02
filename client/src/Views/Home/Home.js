@@ -17,29 +17,27 @@ const Home = () => {
     return (
         <div>
             <div className="hero-container">
-                <Header
-                    as="h1"
-                    content="Website name"
-                    inverted
-                    style={{
-                        fontSize: "4em",
-                        fontWeight: "normal",
-                    }}
-                />
-                <Header
-                    as="h2"
-                    content="Find unpopular programming videos that deserve more attention"
-                    inverted
-                    style={{
-                        fontSize: "1.7em",
-                        fontWeight: "normal",
-                        marginTop: "1.5em"
-                    }}
-                />
-                <Button primary size="huge">
-                    Get Started
+                <div className="hero-header-container">
+                    <Header
+                        as="h1"
+                        content="Find unpopular programming videos that deserve more attention"
+                        inverted
+                        style={{
+                            fontSize: "3em",
+                            fontWeight: "normal",
+                            color: "black"
+                        }}
+                    />
+                    <h2><Icon name="check" className="icon-check" />Videos you have never seen before</h2>
+                    <h2><Icon name="check" className="icon-check" />Filler text</h2>
+                    <h2><Icon name="check" className="icon-check" />More filler text</h2>
+                    <h2><Icon name="check" className="icon-check" />Last row. Lets do one more filler text</h2>
+                    <br />
+                    <Button primary size="huge">
+                        Get Started
           <Icon name="right arrow" />
-                </Button>
+                    </Button>
+                </div>
             </div>
             <Segment className="segment-container" vertical>
                 <Grid container stackable verticalAlign="middle">
@@ -49,7 +47,7 @@ const Home = () => {
                                 What is this all about?
                             </Header>
                             <p style={{ fontSize: "1.33em" }}>
-                                Find useful programming related videos on new and old technologies
+                                Find useful programming related YouTube-videos
                                 that deserve more traffic and attention. Up your skills to the next level.
                             </p>
                             <Header as="h3" style={{ fontSize: "2em" }}>
