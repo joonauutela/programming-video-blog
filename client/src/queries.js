@@ -30,6 +30,9 @@ export const FETCH_POST_QUERY = gql`
             title
             content
             link
+            comments{
+                id
+            }
             likes {
                 id
                 username

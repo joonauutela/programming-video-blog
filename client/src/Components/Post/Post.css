@@ -9,6 +9,7 @@
 
 .post-info {
     padding-bottom: 1vh;
+    font-size: 1.2rem;
 }
 
 .post-user {
@@ -16,7 +17,7 @@
 }
 
 .post-header {
-    
+    font-size: 2rem;
 }
 
 .post-content {
@@ -30,4 +31,16 @@
 
 .buttons-container {
     padding: 2% 0
+}
+
+.tag-container {
+    margin: 1% 0 !important;
+    margin-right: 1% !important; 
+    background: rgb(187, 238, 235) !important;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.205);
+
+}
+
+.tag-icon {
+    padding-left: 0.7rem;
 }

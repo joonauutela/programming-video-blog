@@ -6,19 +6,19 @@
     }
 
     .ui.simple.dropdown.item {
-        color: white !important;
+        color: rgb(0, 0, 0) !important;
         margin: 0 0.5vmin !important;
         font-size: 1.3rem;
     }
 }
 @media (max-width : 800px) {
     .menu-item {
-        color: white !important;
+        color: rgb(0, 0, 0) !important;
         margin: 0 0.1vmin !important;
         font-size: 1rem;
     }
     .ui.simple.dropdown.item {
-        color: white !important;
+        color: rgb(0, 0, 0) !important;
         margin: 0 0.1vmin !important;
         font-size: 1rem;
     }
@@ -34,5 +34,6 @@
 
 .menu-container {
     background: rgb(255, 255, 255) !important;
-   
+   padding: 0 5%;
+   border-bottom: none !important;
 }

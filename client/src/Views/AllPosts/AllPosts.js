@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { FETCH_POSTS_QUERY } from '../../queries'
 import { filterPosts } from '../../util/hooks'
-import { Grid, Header, Search } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import Post from '../../components/Post/Post'
 import Loader from '../../components/Loader'
@@ -33,9 +33,9 @@ const AllPosts = () => {
     }
     return (
         <>
-            <div className="posts-hero-container">
-            </div>
-            <div class="main-container">
+            {console.log(data.getPosts)}
+            <div className="posts-hero-container" />
+            <div className="main-container">
                 <Grid>
                     <Grid.Row>
                         <Grid.Column width={12} className="section-container" >
@@ -49,6 +49,8 @@ const AllPosts = () => {
                                         content={post.content}
                                         createdAt={post.createdAt}
                                         postedBy={post.username}
+                                        comments={post.comments.length}
+                                        categories={post.categories}
                                         id={post.id}
                                         className="post"
                                     />

@@ -1,32 +1,38 @@
 .filter-button-active {
   padding: 0.5rem 1rem;
   margin: 0.3rem -3rem;
+  color: rgb(101, 101, 251);
   line-height: normal;
   cursor: pointer;
   transition: all 0.1s;
   outline: none;
   list-style-type: none;
   font-size: 1.2em;
-  }
+}
 
-  .filter-button{
-    padding: 0.5rem 1rem;
-    margin: 0.3rem -3rem;
-    line-height: normal;
-    cursor: pointer;
-    transition: all 0.1s;
-    outline: none;
-    list-style-type: none;
-    font-size: 1.2em;
-  }
+.filter-button{
+  padding: 0.5rem 1rem;
+  margin: 0.3rem -3rem;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.1s;
+  outline: none;
+  list-style-type: none;
+  font-size: 1.2em;
+}
   
-  .filter-button:hover {
-    background: rgba(0, 128, 128, 0.15);
-    color: var(--white);
-  }
+.filter-button:hover {
+  background: rgba(0, 128, 128, 0.15);
+  color: var(--white);
+}
 
-  
+.filter-button-active:hover {
+  color: rgb(101, 101, 251) !important;
+  background: rgba(0, 128, 128, 0.15);
+  color: var(--white);
+}
+
 .filters {
-    width: 70%;
-    padding: 3%;
-  }
+  width: 70%;
+  padding: 3%;
+}

@@ -17,23 +17,24 @@ const Navbar = () => {
 
     const menuBar = user ? (
         <Menu pointing secondary size="large" color="teal" className="menu-container">
-            <Menu.Item
-                className='menu-item'
-                name='home'
-                active={activeItem === 'home'}
-                onClick={handleItemClick}
-                as={Link}
-                to='/'
-            />
-            <Menu.Item
-                className='menu-item'
-                name='posts'
-                active={activeItem === 'posts'}
-                onClick={handleItemClick}
-                as={Link}
-                to='/posts'
-            />
+
             <Menu.Menu position='right' style={{ 'paddingRight': '2%' }}>
+                <Menu.Item
+                    className='menu-item'
+                    name='home'
+                    active={activeItem === 'home'}
+                    onClick={handleItemClick}
+                    as={Link}
+                    to='/'
+                />
+                <Menu.Item
+                    className='menu-item'
+                    name='posts'
+                    active={activeItem === 'posts'}
+                    onClick={handleItemClick}
+                    as={Link}
+                    to='/posts'
+                />
                 <div className="ui simple dropdown item">
                     {user.username}
                     <i className="dropdown icon"></i>

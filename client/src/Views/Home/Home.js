@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "semantic-ui-css/semantic.min.css";
 import {
     Button,
@@ -33,10 +34,12 @@ const Home = () => {
                     <h2><Icon name="check" className="icon-check" />More filler text</h2>
                     <h2><Icon name="check" className="icon-check" />Last row. Lets do one more filler text</h2>
                     <br />
-                    <Button primary size="huge">
-                        Get Started
+                    <Link to={"/posts"}>
+                        <Button primary size="huge">
+                            Get Started
           <Icon name="right arrow" />
-                    </Button>
+                        </Button>
+                    </Link>
                 </div>
             </div>
             <Segment className="segment-container" vertical>

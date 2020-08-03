@@ -1,25 +1,28 @@
 import React, { useContext } from 'react'
-import { Card, Icon, Button, Label } from 'semantic-ui-react'
+import { Icon, Button, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { getVideoID, getDate } from '../../util/hooks'
-import { AuthContext } from '../../context/auth';
-import { Header } from 'semantic-ui-react'
+import { AuthContext } from '../../context/auth'
 
 import LikeButton from '../LikeButton'
 import DeleteButton from '../DeleteButton/DeletePost'
 
 import './Post.css'
 
-const Post = ({ title, content, link, likes, id, createdAt, postedBy }) => {
+const Post = ({ title, categories, content, link, likes, id, createdAt, postedBy, comments }) => {
 
     const { user } = useContext(AuthContext)
 
     return (
         <>
-            <Header className='post-header'>
-                {title}
-            </Header>
-            <p className='post-info'>
+            <h2 className="post-header">{title}</h2>
+            {categories.map(category =>
+                <Label className="tag-container" key={category}>
+                    {category}
+                    <Icon name="tags" className="tag-icon" />
+                </Label>
+            )}
+            <p className="post-info">
                 Posted {getDate(createdAt)} By <Link className='post-user' to='/'>{postedBy}</Link>
             </p>
             <div className='post-image-container'>
@@ -35,8 +38,8 @@ const Post = ({ title, content, link, likes, id, createdAt, postedBy }) => {
                             <Icon name="comments" />
                         </Button>
                         <Label basic color="blue" pointing="left">
-                            0
-                    </Label>
+                            {comments}
+                        </Label>
                     </Button>
                 </Link>
 
