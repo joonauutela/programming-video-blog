@@ -35,7 +35,11 @@ export const filterPosts = (allPosts, category, filter) => {
             return b.likes.length - a.likes.length
         })
     }
-    // TODO: Comment filter
+    if (filter === 'comments') {
+        filteredPosts.sort((a, b) => {
+            return b.comments.length - a.comments.length
+        })
+    }
 
     return filteredPosts
 }

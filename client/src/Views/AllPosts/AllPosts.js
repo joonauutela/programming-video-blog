@@ -33,7 +33,6 @@ const AllPosts = () => {
     }
     return (
         <>
-            {console.log(data.getPosts)}
             <div className="posts-hero-container" />
             <div className="main-container">
                 <Grid>
