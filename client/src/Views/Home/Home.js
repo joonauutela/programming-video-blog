@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { NotificationContext } from '../../context/notification'
 import "semantic-ui-css/semantic.min.css";
 import {
     Button,
@@ -69,7 +70,6 @@ const Home = () => {
                             />
                         </Grid.Column>
                     </Grid.Row>
-
                 </Grid>
             </Segment>
         </div>

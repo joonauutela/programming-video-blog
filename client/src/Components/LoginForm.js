@@ -5,10 +5,12 @@ import { LOGIN_USER } from '../queries'
 import { withRouter } from 'react-router-dom'
 
 import { AuthContext } from '../context/auth'
+import { NotificationContext } from '../context/notification'
 import { useForm } from '../util/hooks'
 
 const LoginForm = (props) => {
-    const context = useContext(AuthContext)
+    const authContext = useContext(AuthContext)
+    const notificationContext = useContext(NotificationContext)
     const [errors, setErrors] = useState({})
 
     const { onChange, onSubmit, values } = useForm(loginUserCallback, {
@@ -18,8 +20,9 @@ const LoginForm = (props) => {
 
     const [loginUser, { loading }] = useMutation(LOGIN_USER, {
         update(_, { data: { login: userData } }) {
-            context.login(userData)
+            authContext.login(userData)
             props.history.push('/')
+            notificationContext.addNotification({ message: 'Logged in succesfully', type: 'success' })
         },
         onError(err) {
             setErrors(err.graphQLErrors[0].extensions.exception.errors)

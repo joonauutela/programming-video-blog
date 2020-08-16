@@ -2,18 +2,26 @@ import React, { useContext, useState } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/auth'
+import { NotificationContext } from '../../context/notification'
 
 import './Navbar.css'
+
 
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext)
+    const { addNotification } = useContext(NotificationContext)
+
     const pathname = window.location.pathname
 
     const path = pathname === '/' ? 'home' : pathname.substr(1)
     const [activeItem, setActiveItem] = useState(path)
 
     const handleItemClick = (e, { name }) => setActiveItem(name)
+    const handleLogout = () => {
+        logout()
+        addNotification({ message: 'Logged out succesfully', type: 'success' })
+    }
 
     const menuBar = user ? (
         <Menu pointing secondary size="large" color="teal" className="menu-container">
@@ -41,7 +49,7 @@ const Navbar = () => {
                     <div className="menu" style={{ 'margin': '10px !important' }}>
                         <Link className="item" to={`/user`}>Profile</Link>
                         <Link className="item" to={'/create-post'}>Create Post</Link>
-                        <Link className="item" to={'/'} onClick={logout}>Logout</Link>
+                        <Link className="item" to={'/'} onClick={handleLogout}>Logout</Link>
                     </div>
                 </div>
             </Menu.Menu>

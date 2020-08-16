@@ -1,17 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { useMutation } from '@apollo/react-hooks'
 import { withRouter } from 'react-router-dom'
 import { CREATE_POST_MUTATION, FETCH_POSTS_QUERY } from '../../queries'
+import { NotificationContext } from '../../context/notification'
+import { useForm } from '../../util/hooks'
 import Tag from '../Tag/Tag'
 
-import { useForm } from '../../util/hooks'
 import './CreatePostForm.css'
 
 const CreatePostForm = (props) => {
     const [errors, setErrors] = useState({})
     const [categories, setCategories] = useState([])
     const [category, setCategory] = useState('')
+
+    const notificationContext = useContext(NotificationContext)
 
     const { onChange, onSubmit, values } = useForm(createPostCallback, {
         title: '',
@@ -40,7 +43,8 @@ const CreatePostForm = (props) => {
             values.link = ''
             values.content = ''
             setCategories([])
-            props.history.push('/')
+            notificationContext.addNotification({ message: 'Post created succesfully', type: 'success' })
+            props.history.push('/posts')
         }
     })
 
