@@ -1,10 +1,11 @@
-const { ApolloServer } = require('apollo-server')
-const gql = require('graphql-tag')
+const { ApolloServer } = require('apollo-server-express')
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken')
+const express = require('express')
 const resolvers = require('./resolvers/index')
 const typeDefs = require('./typeDefs')
-const jwt = require('jsonwebtoken')
 const User = require('./models/User')
+
 require('dotenv').config()
 
 const MONGODB_URI = `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@cluster0.6n5us.mongodb.net/<dbname>?retryWrites=true&w=majority`
@@ -19,6 +20,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
     })
 
 const server = new ApolloServer({
+    cors: false,
     typeDefs,
     resolvers,
     context: async ({ req }) => {
@@ -33,7 +35,9 @@ const server = new ApolloServer({
     }
 })
 
-server.listen({ port: 4000 })
-    .then(res => {
-        console.log(`Server running at ${res.url}`)
-    })
+const app = express()
+server.applyMiddleware({ app, cors: { origin: 'http://localhost:3000', credentials: true } });
+
+app.listen({ port: 4000 }, () =>
+    console.log(`Server readkky at http://localhost:4000${server.graphqlPath}`)
+)

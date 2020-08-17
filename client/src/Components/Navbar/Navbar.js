@@ -6,7 +6,6 @@ import { NotificationContext } from '../../context/notification'
 
 import './Navbar.css'
 
-
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext)
