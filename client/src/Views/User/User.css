@@ -1,6 +1,30 @@
-.user-container {
-    background: rgba(255, 255, 255, 0.781);
-    padding: 3% 10%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+.user-display-container {
+    padding: 4%;
+    margin: 0 10%;
+    overflow: auto;
+    border-bottom: 1px solid black;
+}
 
+.user-info-container {
+    display:block;
+    float:left;
+    padding: 0% 5%;
+}
+
+.username-header {
+    font-size: 2.5rem;
+    color: rgb(45, 89, 170);
+}
+
+.user-info-text {
+    font-size: 1.5rem;
+}
+
+.user-posts-container {
+    margin-right: 0 auto;
+    padding: 5% 15%;
+}
+
+.user-posts-title {
+    color: rgb(45, 89, 170);
 }
