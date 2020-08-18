@@ -40,6 +40,7 @@ module.exports = gql`
         ping: String!
         getUsers: [User!]!
         getPosts(category: String): [Post!]!
+        getPostsByUser(username: String!): [Post!]!
         getPost(id: String!): Post!
     }
     type Mutation {

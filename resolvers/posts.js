@@ -14,6 +14,16 @@ module.exports = {
             }
             return Post.find({})
         },
+        getPostsByUser: async (_, { username }, context) => {
+            try {
+                return Post.find({ username })
+            } catch (error) {
+                throw new UserInputError(error.message, {
+                    invalidUsername: username,
+                })
+            }
+
+        },
         getPost: async (_, args) => {
             const post = await Post.findById(args.id)
             return post
