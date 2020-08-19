@@ -70,6 +70,38 @@ export const FETCH_POSTS_BY_USER_QUERY = gql`
         }
     }
 `
+export const FETCH_USER_QUERY = gql`
+    query getUser($username: String!){
+        getUser(username: $username){
+            username,
+            followers {
+                username
+            }
+            following {
+                username
+            }
+            posts {
+                title
+                content
+                link
+                id
+                username
+                likes {
+                    id
+                    createdAt
+                    username
+                }
+                createdAt
+                categories
+                comments {
+                    username
+                    createdAt
+                    body
+                }
+            }
+        }
+    }
+`
 
 export const LIKE_POST_QUERY = gql`
 mutation likePost($id: ID!){
@@ -112,6 +144,14 @@ export const LOGIN_USER = gql`
             id,
             email,
             token
+        }
+    }
+`
+
+export const FOLLOW_MUTATION = gql`
+    mutation follow($usernameToFollow: String!){
+        follow(usernameToFollow: $usernameToFollow) {
+            username
         }
     }
 `

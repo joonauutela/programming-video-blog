@@ -51,6 +51,7 @@ module.exports = gql`
     type Query {
         ping: String!
         getUsers: [User!]!
+        getUser(username: String!): User!
         getPosts(category: String): [Post!]!
         getPostsByUser(username: String!): [Post!]!
         getPost(id: String!): Post!

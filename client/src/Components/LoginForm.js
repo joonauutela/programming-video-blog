@@ -20,6 +20,7 @@ const LoginForm = (props) => {
 
     const [loginUser, { loading }] = useMutation(LOGIN_USER, {
         update(_, { data: { login: userData } }) {
+            console.log(userData)
             authContext.login(userData)
             props.history.push('/')
             notificationContext.addNotification({ message: 'Logged in succesfully', type: 'success' })

@@ -1,17 +1,18 @@
 import React from 'react'
-import { Image, Button } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 import { useParams } from 'react-router-dom'
-import { FETCH_POSTS_BY_USER_QUERY } from '../../queries'
+import { FETCH_USER_QUERY } from '../../queries'
 import { useQuery } from '@apollo/react-hooks'
 
 import Post from '../../components/Post/Post'
+import FollowButton from '../../components/FollowButton/FollowButton'
 
 import './User.css'
 
 const User = () => {
 
     const { username } = useParams()
-    const { data, loading } = useQuery(FETCH_POSTS_BY_USER_QUERY, {
+    const { data, loading } = useQuery(FETCH_USER_QUERY, {
         variables: { username }
     })
 
@@ -22,15 +23,15 @@ const User = () => {
             <div className="user-display-container">
                 <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' align="left" circular />
                 <div className="user-info-container">
-                    <h1 className="username-header">{username} <Button primary>Follow</Button></h1>
-                    <p className="user-info-text">Followers: 0</p>
-                    <p className="user-info-text">Following: 0</p>
-                    <p className="user-info-text">Posts: {data.getPostsByUser.length}</p>
+                    <h1 className="username-header">{username} <FollowButton userToFollow={data.getUser} /></h1>
+                    <p className="user-info-text">Followers: {data.getUser.followers.length}</p>
+                    <p className="user-info-text">Following: {data.getUser.following.length}</p>
+                    <p className="user-info-text">Posts: {data.getUser.posts.length}</p>
                 </div>
             </div>
             <div className="user-posts-container">
                 <h1 className="user-posts-title">Posts by {username}:</h1>
-                {data.getPostsByUser.map(post => {
+                {data.getUser.posts.map(post => {
                     return <Post
                         key={post.id}
                         title={post.title}

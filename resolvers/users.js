@@ -24,6 +24,13 @@ module.exports = {
     Query: {
         getUsers: () => {
             return User.find({}).populate('posts')
+        },
+        getUser: async (_, { username }) => {
+            try {
+                return User.findOne({ username }).populate('posts')
+            } catch (error) {
+                throw new UserInputError('User not found', error)
+            }
         }
     },
     Mutation: {
@@ -88,12 +95,12 @@ module.exports = {
                     userToFollow.following = userToFollow.following.filter((follower) => follower.username !== currentUsername)
                 } else {
                     // User not followed, follow user
-                    currentUser.followers.push({
+                    currentUser.following.push({
                         username: usernameToFollow,
                         createdAt: new Date().toISOString()
                     })
                     // Add user to followers
-                    userToFollow.following.push({
+                    userToFollow.followers.push({
                         username: currentUsername,
                         createdAt: new Date().toISOString()
                     })

@@ -46,7 +46,7 @@ const Navbar = () => {
                     {user.username}
                     <i className="dropdown icon"></i>
                     <div className="menu" style={{ 'margin': '10px !important' }}>
-                        <Link className="item" to={`/user`}>Profile</Link>
+                        <Link className="item" to={`/user/${user.username}`}>Profile</Link>
                         <Link className="item" to={'/create-post'}>Create Post</Link>
                         <Link className="item" to={'/'} onClick={handleLogout}>Logout</Link>
                     </div>
