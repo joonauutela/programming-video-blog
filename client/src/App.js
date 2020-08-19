@@ -35,7 +35,7 @@ const App = () => {
             <UnauthenticatedRoute exact path='/register' component={Register} />
             <AuthenticatedRoute exact path='/create-post' component={CreatePost} />
             <Route path='/post/:id' component={PostDescription} />
-            <Route path='/user' component={User} />
+            <Route path='/user/:username' component={User} />
           </Container>
         </Router>
       </NotificationProvider>

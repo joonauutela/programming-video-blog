@@ -6,6 +6,8 @@ module.exports = gql`
         username: String!
         email: String!
         token: String!
+        followers: [Follower!]!
+        following: [Following!]!
         posts: [Post!]!
     }
     type Post {
@@ -26,6 +28,16 @@ module.exports = gql`
         body: String!
     }
     type Like {
+        id: ID!
+        createdAt: String!
+        username: String!
+    }
+    type Follower {
+        id: ID!
+        createdAt: String!
+        username: String!
+    }
+    type Following {
         id: ID!
         createdAt: String!
         username: String!
@@ -54,6 +66,7 @@ module.exports = gql`
         deletePost(id: ID!): String!
         createComment(postId: ID! body: String!): Post!
         deleteComment(postId: ID!, commentId: ID!): String!
+        follow(usernameToFollow: String!): User!
         register(registerInput: RegisterInput): User!
         login(username: String! password: String!): User!
     }

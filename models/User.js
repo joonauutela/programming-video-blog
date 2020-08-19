@@ -11,6 +11,19 @@ const userSchema = mongoose.Schema({
         unique: true,
         required: true
     },
+    followers: [
+        {
+            username: String,
+            createdAt: String
+        }
+    ],
+    following: [
+        {
+            username: String,
+            createdAt: String
+        }
+    ],
+
     passwordHash: String,
     posts: [
         {

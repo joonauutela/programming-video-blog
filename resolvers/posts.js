@@ -65,9 +65,9 @@ module.exports = {
                 const post = await Post.findById(id)
                 if (currentUser.username === post.username) {
                     await post.delete();
-                    return 'Post deleted successfully';
+                    return 'Post deleted successfully'
                 } else {
-                    throw new AuthenticationError('Action not allowed');
+                    throw new AuthenticationError('Action not allowed')
                 }
             } catch (err) {
                 throw new Error(err)
@@ -89,12 +89,12 @@ module.exports = {
                     post.likes.push({
                         username,
                         createdAt: new Date().toISOString()
-                    });
+                    })
                 }
 
-                await post.save();
-                return post;
-            } else throw new UserInputError('Post not found');
+                await post.save()
+                return post
+            } else throw new UserInputError('Post not found')
         }
     }
 }

@@ -37,7 +37,9 @@ module.exports = {
             const newUser = new User({
                 username,
                 email,
-                passwordHash
+                passwordHash,
+                followers: [],
+                following: []
             })
             return await newUser.save()
         },
@@ -70,6 +72,37 @@ module.exports = {
                 token
             }
             return loggedUser
+        },
+        follow: async (_, { usernameToFollow }, { currentUser }) => {
+            if (!currentUser) {
+                throw new AuthenticationError("not authenticated")
+            }
+            const userToFollow = await User.findOne({ username: usernameToFollow })
+            const currentUsername = currentUser.username
+
+            if (userToFollow) {
+                if (currentUser.followers.find((follower) => follower.username === usernameToFollow)) {
+                    // User already being followed, unfollow user
+                    currentUser.followers = currentUser.followers.filter((follower) => follower.username !== usernameToFollow)
+                    // Remove user from followers
+                    userToFollow.following = userToFollow.following.filter((follower) => follower.username !== currentUsername)
+                } else {
+                    // User not followed, follow user
+                    currentUser.followers.push({
+                        username: usernameToFollow,
+                        createdAt: new Date().toISOString()
+                    })
+                    // Add user to followers
+                    userToFollow.following.push({
+                        username: currentUsername,
+                        createdAt: new Date().toISOString()
+                    })
+                }
+                await userToFollow.save()
+                await currentUser.save()
+                return userToFollow
+
+            } else throw new UserInputError('User not found')
         }
     }
 }

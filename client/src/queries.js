@@ -47,6 +47,29 @@ export const FETCH_POST_QUERY = gql`
         }
     }
 `
+export const FETCH_POSTS_BY_USER_QUERY = gql`
+    query getPostsByUser($username: String!){
+        getPostsByUser(username: $username){
+            title
+            content
+            link
+            id
+            username
+            likes {
+                id
+                createdAt
+                username
+            }
+            createdAt
+            categories
+            comments {
+            username
+            createdAt
+            body
+            }
+        }
+    }
+`
 
 export const LIKE_POST_QUERY = gql`
 mutation likePost($id: ID!){
