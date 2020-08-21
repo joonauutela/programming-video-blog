@@ -1,6 +1,6 @@
-const Post = require('../models/Post')
-const { validateCreateCommentInput } = require('../util/validators/createComment')
-const { UserInputError } = require('apollo-server')
+const Post = require('../../models/Post')
+const { validateCreateCommentInput } = require('../../util/validators/createComment')
+const { UserInputError } = require('apollo-server-express')
 
 module.exports = {
     Mutation: {

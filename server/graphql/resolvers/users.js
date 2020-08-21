@@ -1,8 +1,8 @@
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const User = require('../models/User')
-const { validateRegisterInput } = require('../util/validators/register')
-const { validateLoginInput } = require('../util/validators/login')
+const User = require('../../models/User')
+const { validateRegisterInput } = require('../../util/validators/register')
+const { validateLoginInput } = require('../../util/validators/login')
 const { UserInputError } = require('apollo-server')
 require('dotenv').config()
 

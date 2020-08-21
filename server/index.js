@@ -2,8 +2,8 @@ const { ApolloServer } = require('apollo-server-express')
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken')
 const express = require('express')
-const resolvers = require('./resolvers/index')
-const typeDefs = require('./typeDefs')
+const resolvers = require('./graphql/resolvers/index')
+const typeDefs = require('./graphql/typeDefs')
 const User = require('./models/User')
 
 require('dotenv').config()
