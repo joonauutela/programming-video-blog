@@ -1,5 +1,5 @@
 const { ApolloServer } = require('apollo-server-express')
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 const express = require('express')
 const resolvers = require('./graphql/resolvers/index')
@@ -36,7 +36,7 @@ const server = new ApolloServer({
 })
 
 const app = express()
-server.applyMiddleware({ app, cors: { origin: 'http://localhost:3000', credentials: true } });
+server.applyMiddleware({ app, cors: { origin: 'http://localhost:3000', credentials: true } })
 
 app.listen({ port: 4000 }, () =>
     console.log(`Server ready at http://localhost:4000${server.graphqlPath}`)

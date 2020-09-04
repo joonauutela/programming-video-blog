@@ -12,9 +12,10 @@ module.exports.validateCreatePostInput = (title, link, content, categories) => {
     if (link.trim() === '') {
         errors.link = 'Link must not be empty'
     }
+    // eslint-disable-next-line 
     const regEx = /http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/
     if (!link.match(regEx) && !errors.link) {
-        errors.link = 'Please provide a valid YouTube-link';
+        errors.link = 'Please provide a valid YouTube-link'
     }
     // Content -- 
     if (content.trim() === '') {

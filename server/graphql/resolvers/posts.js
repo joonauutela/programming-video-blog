@@ -64,7 +64,7 @@ module.exports = {
             try {
                 const post = await Post.findById(id)
                 if (currentUser.username === post.username) {
-                    await post.delete();
+                    await post.delete()
                     return 'Post deleted successfully'
                 } else {
                     throw new AuthenticationError('Action not allowed')
@@ -78,12 +78,12 @@ module.exports = {
                 throw new AuthenticationError("not authenticated")
             }
 
-            const post = await Post.findById(args.id);
+            const post = await Post.findById(args.id)
             const username = currentUser.username
             if (post) {
                 if (post.likes.find((like) => like.username === username)) {
                     // Post already likes, unlike it
-                    post.likes = post.likes.filter((like) => like.username !== username);
+                    post.likes = post.likes.filter((like) => like.username !== username)
                 } else {
                     // Not liked, like post
                     post.likes.push({

@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../../models/User')
 const { validateRegisterInput } = require('../../util/validators/register')
 const { validateLoginInput } = require('../../util/validators/login')
-const { UserInputError } = require('apollo-server')
+const { UserInputError, AuthenticationError } = require('apollo-server')
 require('dotenv').config()
 
 const SECRET_KEY = process.env.SECRET_KEY
@@ -17,7 +17,7 @@ function generateToken(user) {
         },
         SECRET_KEY,
         { expiresIn: '1h' }
-    );
+    )
 }
 
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
             if (!valid) {
                 throw new UserInputError('Errors', { errors })
             }
-            passwordHash = await bcrypt.hash(password, 12)
+            const passwordHash = await bcrypt.hash(password, 12)
             const newUser = new User({
                 username,
                 email,
