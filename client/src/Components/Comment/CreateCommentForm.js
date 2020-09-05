@@ -32,7 +32,7 @@ const CreateCommentForm = ({ postId }) => {
                 <button
                     type="submit"
                     className="ui blue labeled submit icon button"
-                    disabled={comment.trim() === ""}
+                    disabled={comment.trim() === ''}
                     onClick={submitComment}
                 >
                     <i className="icon edit"></i>

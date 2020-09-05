@@ -25,22 +25,22 @@ const Navbar = () => {
     const menuBar = user ? (
         <Menu pointing secondary size="large" color="teal" className="menu-container">
 
-            <Menu.Menu position='right' style={{ 'paddingRight': '2%' }}>
+            <Menu.Menu position="right" style={{ 'paddingRight': '2%' }}>
                 <Menu.Item
-                    className='menu-item'
-                    name='home'
+                    className="menu-item"
+                    name="home"
                     active={activeItem === 'home'}
                     onClick={handleItemClick}
                     as={Link}
-                    to='/'
+                    to="/"
                 />
                 <Menu.Item
-                    className='menu-item'
-                    name='posts'
+                    className="menu-item"
+                    name="posts"
                     active={activeItem === 'posts'}
                     onClick={handleItemClick}
                     as={Link}
-                    to='/posts'
+                    to="/posts"
                 />
                 <div className="ui simple dropdown item">
                     {user.username}
@@ -56,37 +56,37 @@ const Navbar = () => {
     ) : (
             <Menu pointing secondary size="large" color="teal" className="menu-container">
                 <Menu.Item
-                    className='menu-item'
-                    name='home'
+                    className="menu-item"
+                    name="home"
                     active={activeItem === 'home'}
                     onClick={handleItemClick}
                     as={Link}
-                    to='/'
+                    to="/"
                 />
                 <Menu.Item
-                    className='menu-item'
-                    name='posts'
+                    className="menu-item"
+                    name="posts"
                     active={activeItem === 'posts'}
                     onClick={handleItemClick}
                     as={Link}
-                    to='/posts'
+                    to="/posts"
                 />
-                <Menu.Menu position='right'>
+                <Menu.Menu position="right">
                     <Menu.Item
-                        className='menu-item'
-                        name='login'
+                        className="menu-item"
+                        name="login"
                         active={activeItem === 'login'}
                         onClick={handleItemClick}
                         as={Link}
-                        to='/login'
+                        to="/login"
                     />
                     <Menu.Item
-                        className='menu-item'
-                        name='register'
+                        className="menu-item"
+                        name="register"
                         active={activeItem === 'register'}
                         onClick={handleItemClick}
                         as={Link}
-                        to='/register'
+                        to="/register"
                     />
                 </Menu.Menu>
             </Menu>

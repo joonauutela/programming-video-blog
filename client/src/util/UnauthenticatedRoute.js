@@ -9,10 +9,10 @@ const UnauthenticatedRoute = ({ component: Component, ...rest }) => {
         <Route
             {...rest}
             render={props =>
-                user ? <Redirect to='/' /> : <Component {...props} />
+                user ? <Redirect to="/" /> : <Component {...props} />
             }
         />
     )
 }
 
-export default UnauthenticatedRoute 
+export default UnauthenticatedRoute

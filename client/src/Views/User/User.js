@@ -21,7 +21,7 @@ const User = () => {
     return (
         <div className="user-container">
             <div className="user-display-container">
-                <Image src='https://react.semantic-ui.com/images/wireframe/square-image.png' size='small' align="left" circular />
+                <Image src="https://react.semantic-ui.com/images/wireframe/square-image.png" size="small" align="left" circular />
                 <div className="user-info-container">
                     <h1 className="username-header">{username} <FollowButton userToFollow={data.getUser} /></h1>
                     <p className="user-info-text">Followers: {data.getUser.followers.length}</p>

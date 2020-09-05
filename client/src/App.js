@@ -28,14 +28,14 @@ const App = () => {
         <Router>
           <Navbar />
           <Notification />
-          <Route exact path='/' component={Home} />
-          <Route exact path='/posts' component={AllPosts} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/posts" component={AllPosts} />
           <Container>
-            <UnauthenticatedRoute exact path='/login' component={Login} />
-            <UnauthenticatedRoute exact path='/register' component={Register} />
-            <AuthenticatedRoute exact path='/create-post' component={CreatePost} />
-            <Route path='/post/:id' component={PostDescription} />
-            <Route path='/user/:username' component={User} />
+            <UnauthenticatedRoute exact path="/login" component={Login} />
+            <UnauthenticatedRoute exact path="/register" component={Register} />
+            <AuthenticatedRoute exact path="/create-post" component={CreatePost} />
+            <Route path="/post/:id" component={PostDescription} />
+            <Route path="/user/:username" component={User} />
           </Container>
         </Router>
       </NotificationProvider>

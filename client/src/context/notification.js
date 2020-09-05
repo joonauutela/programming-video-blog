@@ -2,6 +2,7 @@ import React, { useReducer, createContext } from 'react'
 
 const NotificationContext = createContext({
     notification: { message: '', type: null },
+    // eslint-disable-next-line no-unused-vars
     addNotification: (notification) => { },
     clearNotification: () => { }
 })
@@ -33,7 +34,7 @@ function NotificationProvider(props) {
     const [state, dispatch] = useReducer(notificationReducer, { message: '', type: null })
 
     const addNotification = (notification) => {
-        console.log("lol")
+        console.log('lol')
         dispatch({
             type: 'ADD_NOTIFICATION',
             payload: notification

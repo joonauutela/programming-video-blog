@@ -23,12 +23,12 @@ const Post = ({ title, categories, content, link, likes, id, createdAt, postedBy
                 </Label>
             )}
             <p className="post-info">
-                Posted {getDate(createdAt)} By <Link className='post-user' to='/'>{postedBy}</Link>
+                Posted {getDate(createdAt)} By <Link className="post-user" to="/">{postedBy}</Link>
             </p>
-            <div className='post-image-container'>
-                <Link to={`/post/${id}`}><img src={`https://i.ytimg.com/vi/${getVideoID(link)}/maxresdefault.jpg`} className='post-image' /></Link>
+            <div className="post-image-container">
+                <Link to={`/post/${id}`}><img src={`https://i.ytimg.com/vi/${getVideoID(link)}/maxresdefault.jpg`} className="post-image" /></Link>
             </div>
-            <p className='post-content'>{content}</p>
+            <p className="post-content">{content}</p>
             <Link to={`/post/${id}`}>Full post</Link>
             <div className="buttons-container">
                 <LikeButton id={id} likes={likes} user={user} />

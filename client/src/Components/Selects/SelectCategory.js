@@ -7,8 +7,8 @@ const SelectCategory = ({ category, setCategory }) => {
 
     return (
         <div>
-            <div className='filters'>
-                <h3 className='filter-categories-header'>Categories</h3>
+            <div className="filters">
+                <h3 className="filter-categories-header">Categories</h3>
                 <Search
                     input={{ icon: 'search', iconPosition: 'left' }}
                     open={false}

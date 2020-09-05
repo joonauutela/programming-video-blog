@@ -21,10 +21,10 @@ const DeleteComment = ({ postId, commentId }) => {
             <Button
                 as="div"
                 color="red"
-                style={{ "padding": "0.7rem" }}
+                style={{ 'padding': '0.7rem' }}
                 floated="right"
                 onClick={() => setConfirmOpen(true)} >
-                <Icon name='trash' style={{ 'margin': '0' }} />
+                <Icon name="trash" style={{ 'margin': '0' }} />
             </Button>
             <Confirm
                 open={confirmOpen}

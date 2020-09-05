@@ -17,8 +17,8 @@ const YoutubePlayer = ({ link }) => {
                 className="youtube-player"
                 url={link}
                 config={config}
-                width='100%'
-                height='100%'
+                width="100%"
+                height="100%"
             />
         </div>
     )

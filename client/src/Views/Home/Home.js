@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { NotificationContext } from '../../context/notification'
-import "semantic-ui-css/semantic.min.css";
+import 'semantic-ui-css/semantic.min.css'
 import {
     Button,
     Grid,
@@ -9,7 +8,7 @@ import {
     Icon,
     Image,
     Segment
-} from "semantic-ui-react";
+} from 'semantic-ui-react'
 import landing_image from '../../media/landing_image.jpg'
 
 import './Home.css'
@@ -25,9 +24,9 @@ const Home = () => {
                         content="Find unpopular programming videos that deserve more attention"
                         inverted
                         style={{
-                            fontSize: "3em",
-                            fontWeight: "normal",
-                            color: "black"
+                            fontSize: '3em',
+                            fontWeight: 'normal',
+                            color: 'black'
                         }}
                     />
                     <h2><Icon name="check" className="icon-check" />Videos you have never seen before</h2>
@@ -35,7 +34,7 @@ const Home = () => {
                     <h2><Icon name="check" className="icon-check" />More filler text</h2>
                     <h2><Icon name="check" className="icon-check" />Last row. Lets do one more filler text</h2>
                     <br />
-                    <Link to={"/posts"}>
+                    <Link to={'/posts'}>
                         <Button primary size="huge">
                             Get Started
           <Icon name="right arrow" />
@@ -47,18 +46,18 @@ const Home = () => {
                 <Grid container stackable verticalAlign="middle">
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Header as="h3" style={{ fontSize: "2em" }}>
+                            <Header as="h3" style={{ fontSize: '2em' }}>
                                 What is this all about?
                             </Header>
-                            <p style={{ fontSize: "1.33em" }}>
+                            <p style={{ fontSize: '1.33em' }}>
                                 Find useful programming related YouTube-videos
                                 that deserve more traffic and attention. Up your skills to the next level.
                             </p>
-                            <Header as="h3" style={{ fontSize: "2em" }}>
+                            <Header as="h3" style={{ fontSize: '2em' }}>
                                 Second header that has nothing
                             </Header>
-                            <p style={{ fontSize: "1.33em" }}>
-                                Yes that's right, theres nothing here yet. Lorem ipsum ja niin edelleen. Filler text.
+                            <p style={{ fontSize: '1.33em' }}>
+                                Yes thats right, theres nothing here yet. Lorem ipsum ja niin edelleen. Filler text.
                             </p>
                         </Grid.Column>
                         <Grid.Column floated="right" width={6}>

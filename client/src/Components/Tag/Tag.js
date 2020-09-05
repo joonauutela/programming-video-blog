@@ -5,8 +5,8 @@ import './Tag.css'
 const Tag = ({ category, removeCategory }) => {
     return (
         <span className="tag">
-            <span className='tag-title'>{category}</span>
-            <span className='tag-close-icon'
+            <span className="tag-title">{category}</span>
+            <span className="tag-close-icon"
                 onClick={() => removeCategory(category)}
             >
                 x

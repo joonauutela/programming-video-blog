@@ -22,7 +22,7 @@ const CreatePostForm = (props) => {
         content: ''
     })
 
-    const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
+    const [createPost] = useMutation(CREATE_POST_MUTATION, {
         variables: {
             title: values.title,
             link: values.link,
@@ -38,7 +38,7 @@ const CreatePostForm = (props) => {
                 setErrors({})
             }
         },
-        update(_, result) {
+        update() {
             values.title = ''
             values.link = ''
             values.content = ''
@@ -65,9 +65,9 @@ const CreatePostForm = (props) => {
     }
 
     return (
-        <div className='create-post-container'>
+        <div className="create-post-container">
             {Object.keys(errors).length > 0 &&
-                <div className='ui error message'>
+                <div className="ui error message">
                     <ul>
                         {Object.values(errors).map(value => (
                             <li key={value}>{value}</li>
@@ -78,52 +78,52 @@ const CreatePostForm = (props) => {
             <Form onSubmit={onSubmit}>
                 <h1>Create post</h1>
                 <Form.Input
-                    label='Title'
-                    placeholder='Title..'
-                    name='title'
-                    type='title'
+                    label="Title"
+                    placeholder="Title.."
+                    name="title"
+                    type="title"
                     value={values.title}
                     error={errors.title ? true : false}
                     onChange={onChange}
                 />
                 <Form.Input
-                    label='Youtube link'
-                    placeholder='Video link here..'
-                    name='link'
-                    type='link'
+                    label="Youtube link"
+                    placeholder="Video link here.."
+                    name="link"
+                    type="link"
                     value={values.link}
                     error={errors.link ? true : false}
                     onChange={onChange}
                 />
                 <Form.TextArea
-                    label='Content'
-                    placeholder='Content..'
-                    name='content'
-                    type='content'
+                    label="Content"
+                    placeholder="Content.."
+                    name="content"
+                    type="content"
                     value={values.content}
                     error={errors.content ? true : false}
                     onChange={onChange}
                     rows="15"
                 />
                 <Form.Input
-                    label='Categories (max 3 per post)'
-                    placeholder='Add category'
-                    name='categories'
-                    type='category'
+                    label="Categories (max 3 per post)"
+                    placeholder="Add category"
+                    name="categories"
+                    type="category"
                     value={category}
                     error={errors.categories ? true : false}
                     onChange={event => setCategory(event.target.value)}
                 />
-                <div className='container'>
+                <div className="container">
                     <Button
-                        name='categories'
-                        type='button'
+                        name="categories"
+                        type="button"
                         value={category}
                         onClick={() => addCategory()}
                     >
                         Add category
                     </Button>
-                    <p className='selected-tags-label'>Selected tags:</p>
+                    <p className="selected-tags-label">Selected tags:</p>
                     {categories.map(category => (
                         <Tag
                             category={category}
@@ -133,7 +133,7 @@ const CreatePostForm = (props) => {
                     )
                     )}
                 </div>
-                <Button type='submit' primary className='submit-post'>
+                <Button type="submit" primary className="submit-post">
                     Create post
                 </Button>
             </Form>
