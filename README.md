@@ -1,13 +1,22 @@
 # Programming-video blog
+<<<<<<< HEAD
 ![ESLint](https://miro.medium.com/max/276/1*pD7ShcZ7YHIMXe2mgiFzbg.png)
 ![ESLint](https://res.cloudinary.com/practicaldev/image/fetch/s---GoJn40g--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/398/1%2ATPkhIqPgVzFSSpwdlVwhVw.png)
+=======
+![ESLint](https://res.cloudinary.com/practicaldev/image/fetch/s---GoJn40g--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/398/1%2ATPkhIqPgVzFSSpwdlVwhVw.png)
+<img src="https://i.morioh.com/36c5fc09c6.png" height="200" />
+>>>>>>> be2996b94b185c99e0d11eab99f6faef3960afa1
 
 ## Project description
 Show off programming videos that you think deserve more attention. Find interesting videos that you've 
 might never seen before.
 
 - Project can be tested at <'url here'>
+<<<<<<< HEAD
 - Demo video can be found at <url here>
+=======
+- Demo video can be found at <'url here'>
+>>>>>>> be2996b94b185c99e0d11eab99f6faef3960afa1
 
 ## Tech
 
