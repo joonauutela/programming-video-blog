@@ -8,7 +8,7 @@ const User = require('./models/User')
 
 require('dotenv').config()
 
-const MONGODB_URI = `mongodb+srv://admin:${process.env.MONGODB_PASSWORD}@cluster0.6n5us.mongodb.net/<dbname>?retryWrites=true&w=majority`
+const MONGODB_URI = process.env.MONGODB_URI
 const SECRET_KEY = process.env.SECRET_KEY
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -6,8 +6,11 @@
 Show off programming videos that you think deserve more attention. Find interesting videos that you've 
 might never seen before.
 
-- Project can be tested at <'url here'>
-- Demo video can be found at <'url here'>
+- A quick demo-video of the project can be found at https://www.youtube.com/watch?v=LJ7ROrYVevY
+
+### Project objectives
+- To better understand full-stack development.
+- To plan and produce a well structured project.
 
 ## Tech
 
@@ -30,6 +33,15 @@ Install the dependencies and devDependencies.
 npm install
 ```
 
+Before starting the server you need to create a MongoDB-cluster
+on https://www.mongodb.com/. After creating the cluster, create an '.env' file in root of server.
+
+.env-file should look the following (the secret key can have any value):
+```
+MONGODB_URI=<your mongodb-URI here>
+SECRET_KEY=<your secret key>
+```
+
 Start the server with nodemon.
 ```
 npm run start
@@ -42,13 +54,6 @@ npm run serve
 
 Both commands start the app in the development mode.<br />
 Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
-
-Run eslint and check for linting errors or warnings.
-Auto-fix linting errors and warnings.
-```
-npm run lint
-npm run fix
-```
 
 ### Client
 
@@ -63,9 +68,5 @@ npm start
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Run eslint and check for linting errors or warning.
-Auto-fix linting errors and warnings.
-```
-npm run lint
-npm run fix
-```
+### Licensed under the MIT License
+© 2020 Joona M Uutela
